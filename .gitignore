@@ -1,5 +1,5 @@
-english_point/node_modules
 english_point/vendor
+english_point/storage
 english_point/.env
 english_point/.env.backup
 english_point/.phpunit.result.cache
