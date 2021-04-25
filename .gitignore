@@ -1,0 +1,13 @@
+english_point/node_modules
+english_point/storage/*.key
+english_point/vendor
+english_point/.env
+english_point/.env.backup
+english_point/.phpunit.result.cache
+english_point/docker-compose.override.yml
+english_point/Homestead.json
+english_point/Homestead.yaml
+english_point/npm-debug.log
+english_point/yarn-error.log
+hot
+storage
