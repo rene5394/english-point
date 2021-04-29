@@ -1,0 +1,106 @@
+/* Fonts */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: "Lato", sans-serif;
+}
+
+p {
+    font-family: "Roboto", sans-serif;
+    font-weight: 300;
+    font-size: 15px;
+}
+
+p a {
+    text-decoration: none;
+}
+
+#copyright p {
+    font-size: 13px;
+}
+
+h1 {
+    font-size: 36px !important;
+}
+
+h2 {
+    font-size: 30px !important;
+}
+
+h3 {
+    font-size: 20px !important;
+}
+
+h4 {
+    font-size: 20px !important;
+}
+
+a {
+    color: #030068;
+}
+
+a:hover {
+    color: #030068;
+    opacity: 0.75;
+}
+
+/* Visual Views */
+.min-vh-75 {
+    min-height: 75vh !important;
+}
+
+.max-vh-75 {
+    max-height: 75vh !important;
+}
+
+/* Buttons */
+.btn-dark-blue-bg {
+    background-color: #030068;
+    color: #fff;
+    font-size: 15px;
+}
+
+.btn-dark-blue-bg:hover {
+    background-color: #030068;
+    color: #fff;
+    opacity: 0.75;
+}
+
+/* Backgrounds */
+.gray-bg {
+    background-color: #f2f2f2;
+}
+
+.dark-blue-bg {
+    background-color: #030068;
+}
+
+.red-bg {
+    background-color: #f60103;
+}
+
+/* Opacities */
+.opacity-100 {
+    opacity: 1;
+}
+
+/* Spacing */
+
+body {
+    margin-top: 95px;
+}
+
+.anchor-links {
+    margin-top: -90px !important;
+    position: absolute;
+}
+
+@media screen and (max-width: 767px) {
+    .anchor-links {
+        margin-top: -90px !important;
+        position: absolute;
+    }
+}
