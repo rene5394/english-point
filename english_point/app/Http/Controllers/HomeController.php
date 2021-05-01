@@ -10,7 +10,19 @@ class HomeController extends Controller
         return view('home');
     }
 
-    public function cursos(){
-        return view('cursos');
+    public function courses(){
+        return view('courses');
+    }
+
+    public function reinforcement(){
+        return view('reinforcement');
+    }
+
+    public function translation(){
+        return view('translation');
+    }
+
+    public function interpretation(){
+        return view('interpretation');
     }
 }

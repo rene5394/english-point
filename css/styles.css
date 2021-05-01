@@ -104,3 +104,38 @@ body {
         position: absolute;
     }
 }
+
+/* Menu */
+@media all and (min-width: 992px) {
+    .navbar .nav-item .dropdown-menu {
+        display: none;
+    }
+    .navbar .nav-item:hover .dropdown-menu {
+        display: block;
+    }
+    .navbar .nav-item .dropdown-menu {
+        margin-top: 0;
+    }
+}
+
+[class*=" bi-"]::before {
+    vertical-align: -0.19em !important;
+}
+
+.dropdown-item {
+    color: #030068;
+}
+
+.dropdown-item:hover {
+    color: #030068;
+    opacity: 0.75;
+}
+
+/* Contact Form */
+#contact-form input {
+    width: 100%;
+    margin-bottom: 12px;
+    border: solid 1px #cecece;
+    border-radius: 3px;
+    padding: 6px 10px;
+}

@@ -13,20 +13,27 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+// Website pages
 Route::get('/', 'HomeController@index')->name('home');
 Route::get('/acerca-de-nosotros', 'HomeController@acercadenosotros')->name('about');
 Route::get('/contactanos', 'HomeController@contactanos')->name('contact');
-Route::get('/cursos', 'HomeController@cursos')->name('courses');
 
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth'])->name('dashboard');
+// Service pages
+Route::get('/cursos-grupales', 'HomeController@courses')->name('courses');
+Route::get('/refuerzo', 'HomeController@reinforcement')->name('reinforcement');
+Route::get('/traduccion', 'HomeController@translation')->name('translation');
+Route::get('/interpretacion', 'HomeController@interpretation')->name('interpretation');
 
+//Admin pages
+Route::get('/dashboard', 'AdminController@index')->name('dashboard');
+
+// Wompi
 Route::match(['get', 'post'], '/test-wopmpi', 'WompiController@index');
 Route::post('/test-wopmpi2', 'WompiController@index');
-
 Route::get('/auth-wompi', 'WompiController@authWompi');
 
+// Transactions
 Route::get('/create-transaction', 'WompiController@testCreateTransaction');
 
+// Auth
 require __DIR__.'/auth.php';
