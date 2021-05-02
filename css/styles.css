@@ -88,9 +88,9 @@ a:hover {
 }
 
 /* Spacing */
-
 body {
     margin-top: 95px;
+    display: flow-root;
 }
 
 .anchor-links {

@@ -25,7 +25,13 @@ Route::get('/traduccion', 'HomeController@translation')->name('translation');
 Route::get('/interpretacion', 'HomeController@interpretation')->name('interpretation');
 
 //Admin pages
-Route::get('/dashboard', 'AdminController@index')->name('dashboard');
+Route::get('/admin', function () {
+    return redirect('/login');
+});
+Route::get('/admin/dashboard', 'AdminController@index')->name('dashboard');
+// Courses
+Route::get('/admin/cursos', 'CourseController@courses')->name('listCourses');
+Route::get('/admin/estudiantes-por-curso', 'CourseController@studentsByCourse')->name('studentsByCourse');
 
 // Wompi
 Route::match(['get', 'post'], '/test-wopmpi', 'WompiController@index');

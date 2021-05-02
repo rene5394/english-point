@@ -8,13 +8,13 @@
         <title>{{ config('app.name', 'Laravel') }}</title>
 
         <!-- Styles -->
-        <link rel="icon" href="img/favicon.jpg" type="image/jpg">
+        <link rel="icon" href="{{url('/img/favicon.jpg')}}" type="image/jpg">
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css">
         <link rel="preconnect" href="https://fonts.gstatic.com">
         <link href="https://fonts.googleapis.com/css2?family=Lato:wght@100;300;400;700&display=swap" rel="stylesheet">
         <link href="https://fonts.googleapis.com/css2?family=Lato:wght@100;300;400;700&family=Roboto:wght@100;300;400&display=swap" rel="stylesheet">
-        <link rel="stylesheet" href="css/styles.css">
+        <link rel="stylesheet" href="{{url('/css/styles.css')}}">
     </head>
     <body>
         <header class="bg-danger fixed-top">

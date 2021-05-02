@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Course;
 
 class HomeController extends Controller
 {
@@ -11,7 +12,11 @@ class HomeController extends Controller
     }
 
     public function courses(){
-        return view('courses');
+        $courseModel = new Course();
+        $courses = $courseModel->getCourses();
+        return view('courses',[
+            "courses"=>$courses
+        ]);
     }
 
     public function reinforcement(){

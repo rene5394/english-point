@@ -9,13 +9,13 @@
         </div>
         <div class="carousel-inner">
             <div class="carousel-item active">
-                <img src="img/slide1.jpg" class="d-block w-100" alt="Slide 1">
+                <img src="{{url('/img/slide1.jpg')}}" class="d-block w-100" alt="Slide 1">
             </div>
             <div class="carousel-item">
-                <img src="img/slide2.jpg" class="d-block w-100" alt="Slide 2">
+                <img src="{{url('/img/slide2.jpg')}}" class="d-block w-100" alt="Slide 2">
             </div>
             <div class="carousel-item">
-                <img src="img/slide3.jpg" class="d-block w-100" alt="Slide 3">
+                <img src="{{url('/img/slide3.jpg')}}" class="d-block w-100" alt="Slide 3">
             </div>
         </div>
         <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
@@ -50,22 +50,22 @@
             </div>
             <div class="row pb-3">
                 <div class="col-md-3">
-                    <img class="img-fluid mb-3" src="img/slide1.jpg"/>
+                    <img class="img-fluid mb-3" src="{{url('/img/slide1.jpg')}}"/>
                     <h3 class="text-center mb-3">Cursos grupales</h3>
                     <a class="btn btn-dark-blue-bg mx-auto d-table" href="{{route('courses')}}" role="button">Ver cursos</a>
                 </div>
                 <div class="col-md-3 mt-5 mt-md-0">
-                    <img class="img-fluid mb-3" src="img/slide1.jpg"/>
+                    <img class="img-fluid mb-3" src="{{url('/img/slide1.jpg')}}"/>
                     <h3 class="text-center mb-3">Refuerzo</h3>
                     <a class="btn btn-dark-blue-bg mx-auto d-table" href="{{route('reinforcement')}}" role="button">Ver opciones</a>
                 </div>
                 <div class="col-md-3 mt-5 mt-md-0">
-                    <img class="img-fluid mb-3" src="img/slide1.jpg"/>
+                    <img class="img-fluid mb-3" src="{{url('/img/slide1.jpg')}}"/>
                     <h3 class="text-center mb-3">Traducción</h3>
                     <a class="btn btn-dark-blue-bg mx-auto d-table" href="{{route('translation')}}" role="button">Más información</a>
                 </div>
                 <div class="col-md-3 mt-5 mt-md-0">
-                    <img class="img-fluid mb-3" src="img/slide1.jpg"/>
+                    <img class="img-fluid mb-3" src="{{url('/img/slide1.jpg')}}"/>
                     <h5 class="text-center mb-3">Interpretación</h5>
                     <a class="btn btn-dark-blue-bg mx-auto d-table" href="{{route('interpretation')}}" role="button">Más información</a>
                 </div>
