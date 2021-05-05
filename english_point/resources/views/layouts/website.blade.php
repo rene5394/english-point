@@ -8,7 +8,7 @@
         <title>{{ config('app.name', 'Laravel') }}</title>
 
         <!-- Styles -->
-        <link rel="icon" href="{{url('/img/favicon.jpg')}}" type="image/jpg">
+        <link rel="icon" href="{{url('/img/favicon.png')}}" type="image/png">
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css">
         <link rel="preconnect" href="https://fonts.gstatic.com">
@@ -23,7 +23,7 @@
         <nav class="navbar navbar-expand-lg navbar-light bg-white">
             <div class="container">
                  <a class="navbar-brand" href="#">
-                    <img src="img/english-point-logo.jpg" alt="English Point Logo" width="50" height="auto">
+                    <img src="{{url('img/english-point-logo.png')}}" alt="English Point Logo" width="65" height="auto">
                 </a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>

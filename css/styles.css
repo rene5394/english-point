@@ -78,6 +78,10 @@ a:hover {
     background-color: #030068;
 }
 
+.dark-blue-border {
+    border-color: #030068 !important;
+}
+
 .red-bg {
     background-color: #f60103;
 }

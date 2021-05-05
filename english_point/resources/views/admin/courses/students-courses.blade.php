@@ -10,7 +10,7 @@
                     <select id="cursos" class="form-control mb-2">
                         <option value="" disabled selected>Seleccionar curso</option>
                         @foreach($courses as $course)
-                        <option value="{{$course->id}}">{{$course->course}}</option>
+                        <option value="{{$course->id}}">{{$course->level}} {{$course->modality}} {{$course->schedule}}</option>
                         @endforeach
                     </select>
                     <button id="searchStudents" class="btn btn-success ml-md-2 mt-2 mt-md-0">Buscar</button>

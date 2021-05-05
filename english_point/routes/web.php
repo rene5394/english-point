@@ -24,13 +24,21 @@ Route::get('/refuerzo', 'HomeController@reinforcement')->name('reinforcement');
 Route::get('/traduccion', 'HomeController@translation')->name('translation');
 Route::get('/interpretacion', 'HomeController@interpretation')->name('interpretation');
 
+Route::get('/inscripcion-cursos', 'HomeController@inscripcionCursos')->name('inscripcionCursos');
+Route::get('/inscripcion-refuerzo', 'HomeController@refuerzo')->name('refuerzo');
+
 //Admin pages
 Route::get('/admin', function () {
     return redirect('/login');
 });
 Route::get('/admin/dashboard', 'AdminController@index')->name('dashboard');
+Route::get('/admin/dashboard2', 'AdminController@index2')->name('dashboard2');
 // Courses
 Route::get('/admin/cursos', 'CourseController@courses')->name('listCourses');
+Route::get('/admin/coursesByPattern', 'CourseController@coursesByPattern')->name('admin.coursesByPattern');
+Route::put('/admin/activeCourse', 'CourseController@activeCourse')->name('admin.activeCourse');
+Route::put('/admin/deactiveCourse', 'CourseController@deactiveCourse')->name('admin.deactiveCourse');
+
 Route::get('/admin/estudiantes-por-curso', 'CourseController@studentsByCourse')->name('studentsByCourse');
 
 // Wompi

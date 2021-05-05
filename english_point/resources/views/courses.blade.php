@@ -7,26 +7,43 @@
                 <h2 class="text-center mb-5">Cursos disponibles</h2>
             </div>
         </div>
-        <div class="row row-cols-1 row-cols-md-3 mb-3 text-center">
-            @foreach($courses as $course)
-            <div class="col">
-                <div class="card mb-4 rounded-3 shadow-sm border-primary">
-                    <div class="card-header py-3 text-white btn-dark-blue-bg">
-                        <h4 class="my-0 fw-normal">{{$course->course}}</h4>
+        <div class="row mb-3 text-center">
+            <div class="offset-lg-2 col-lg-4">
+                <div class="card mb-4 rounded-3 shadow-sm dark-blue-border">
+                    <div class="card-header py-3 text-white dark-blue-bg">
+                        <h4 class="my-0 fw-normal">Cursos Intensivos</h4>
                     </div>
                     <div class="card-body">
-                        <h1 class="card-title pricing-card-title">$29<small class="text-muted fw-light">/mo</small></h1>
+                        <h1 class="card-title pricing-card-title">$40<small class="text-muted fw-light">/mes</small></h1>
                         <ul class="list-unstyled mt-3 mb-4">
-                        <li>30 users included</li>
-                        <li>15 GB of storage</li>
-                        <li>Phone and email support</li>
-                        <li>Help center access</li>
+                            <li>Básico</li>
+                            <li>Intermedio</li>
+                            <li>Intermedio II</li>
+                            <li>Avanzado</li>
+                            <li>Avanzado II</li>
                         </ul>
-                        <button type="button" class="w-100 btn btn-lg btn-dark-blue-bg">Inscribirme</button>
+                        <a href="{{route('inscripcionCursos')}}" class="w-100 btn btn-lg btn-dark-blue-bg">Inscribirme</a>
                     </div>
                 </div>
             </div>
-            @endforeach
+            <div class="col-lg-4">
+                <div class="card mb-4 rounded-3 shadow-sm dark-blue-border">
+                    <div class="card-header py-3 text-white btn-dark-blue-bg">
+                        <h4 class="my-0 fw-normal">Cursos Sabatinos</h4>
+                    </div>
+                    <div class="card-body">
+                        <h1 class="card-title pricing-card-title">$30<small class="text-muted fw-light">/mes</small></h1>
+                        <ul class="list-unstyled mt-3 mb-4">
+                            <li>Básico</li>
+                            <li>Intermedio</li>
+                            <li>Intermedio II</li>
+                            <li>Avanzado</li>
+                            <li>Avanzado II</li>
+                        </ul>
+                        <a href="{{route('inscripcionCursos')}}" class="w-100 btn btn-lg btn-dark-blue-bg">Inscribirme</a>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 @endsection
