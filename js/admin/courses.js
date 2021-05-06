@@ -95,10 +95,18 @@ if(document.getElementById("page-list-courses")){
                     }
                 });
             }else{
-                alert('Selecciona todos los parametros');
+                swal({
+                    title: "Selecciona un parametro!",
+                    icon: "info",
+                    button: "Cerrar",
+                  });
             }
         }else{
-            alert('Selecciona todos los parametros');
+            swal({
+                title: "Selecciona un parametro!",
+                icon: "info",
+                button: "Cerrar",
+              });
         }
     });
 

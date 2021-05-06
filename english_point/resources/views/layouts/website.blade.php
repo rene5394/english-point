@@ -48,6 +48,18 @@
                         <li class="nav-item">
                             <a class="nav-link" href="{{route('home')}}#contactanos">Contáctanos</a>
                         </li>
+                        <li class="nav-item">
+                            @isset(Auth::user()->role_id)
+                                @if(Auth::user()->role_id == 1)
+                                    <a class="nav-link" href="{{route('dashboard')}}">Mi Perfil</a>
+                                @elseif(Auth::user()->role_id == 2)
+                                    <a class="nav-link" href="{{route('dashboardStudent')}}">Mi Perfil</a>
+                                @endif    
+                            @endisset    
+                            @empty(Auth::user()->role_id)
+                                <a class="nav-link" href="{{url('/login')}}">Iniciar Sesión</a>
+                            @endempty
+                        </li>
                     </ul>
                 </div>
             </div>
@@ -90,5 +102,8 @@
         </footer>
         <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.1/dist/umd/popper.min.js" integrity="sha384-SR1sx49pcuLnqZUnnPwx6FCym0wLsk5JZuNx2bPPENzswTNFaQU1RDvt3wT4gWFG" crossorigin="anonymous"></script>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.min.js" integrity="sha384-j0CNLUeiqtyaRmlzUHCPZ+Gy5fQu0dQ6eZ/xAww941Ai1SxSY+0EQqNXNE6DZiVc" crossorigin="anonymous"></script>
+        <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+
+        <script type="text/javascript" src="{{url('/js/website/courses.js')}}"></script>
     </body>
 </html>

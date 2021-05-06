@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\Course;
 use App\Models\Level;
 use App\Models\Modality;
+use App\Models\User;
 use App\Models\NotificationPreference;
 
 class HomeController extends Controller
@@ -42,5 +43,21 @@ class HomeController extends Controller
             "modalities"=>$modalities,
             "preferences"=>$preferences
         ]);
+    }
+
+    public function registerStudent(Request $request){
+        if($request->fullname && $request->email && $request->address && $request->phone){
+            if($request->level && $request->modality && $request->size && $request->preference){
+                $user = new User();
+                $userCreated = $user->createStudent($request);
+                if($userCreated){
+                    return redirect('/login');
+                }
+            }
+        }
+    }
+
+    public function noAuth(){
+        return view('no-auth');
     }
 }

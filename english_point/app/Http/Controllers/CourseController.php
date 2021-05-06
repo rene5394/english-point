@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use App\Models\Course;
 use App\Models\Modality;
 use App\Models\Level;
@@ -14,17 +15,20 @@ class CourseController extends Controller
     }
 
     public function courses(){
-        $courseModel = new Course();
-        $courses = $courseModel->getCourses();
-        $modalityModel = new Modality();
-        $modalities = $modalityModel->getModalities();
-        $levelModel = new Level();
-        $levels = $levelModel->getLevels();
-        return view('admin.courses.courses',[
-            "courses"=>$courses,
-            "modalities"=>$modalities,
-            "levels"=>$levels
-        ]);
+        if(Auth::user()->role_id === 1){
+            $courseModel = new Course();
+            $courses = $courseModel->getCourses();
+            $modalityModel = new Modality();
+            $modalities = $modalityModel->getModalities();
+            $levelModel = new Level();
+            $levels = $levelModel->getLevels();
+            return view('admin.courses.courses',[
+                "courses"=>$courses,
+                "modalities"=>$modalities,
+                "levels"=>$levels
+            ]);
+        }
+        return redirect('/sin-autorizacion');
     }
 
     public function coursesByPattern(Request $request){
@@ -57,10 +61,13 @@ class CourseController extends Controller
     }
 
     public function studentsByCourse(){
-        $courseModel = new Course();
-        $courses = $courseModel->getCourses();
-        return view('admin.courses.students-courses',[
-            "courses"=>$courses
-        ]);
+        if(Auth::user()->role_id === 1){
+            $courseModel = new Course();
+            $courses = $courseModel->getCourses();
+            return view('admin.courses.students-courses',[
+                "courses"=>$courses
+            ]);
+        }
+        return redirect('/sin-autorizacion');
     }
 }
