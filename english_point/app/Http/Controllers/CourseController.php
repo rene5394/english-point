@@ -64,10 +64,30 @@ class CourseController extends Controller
         if(Auth::user()->role_id === 1){
             $courseModel = new Course();
             $courses = $courseModel->getCourses();
+            $modalityModel = new Modality();
+            $modalities = $modalityModel->getModalities();
+            $levelModel = new Level();
+            $levels = $levelModel->getLevels();
             return view('admin.courses.students-courses',[
-                "courses"=>$courses
+                "courses"=>$courses,
+                "modalities"=>$modalities,
+                "levels"=>$levels
             ]);
         }
         return redirect('/sin-autorizacion');
+    }
+
+    public function studentsByPattern(Request $request){
+        $courseModel = new Course();
+        if($request->pattern === 'Name'){
+            $courses = $courseModel->getStudentsByModality($request->value);
+        }
+        if($request->pattern === 'Modality'){
+            $courses = $courseModel->getStudentsByModality($request->value);
+        }
+        if($request->pattern === 'Level'){
+            $courses = $courseModel->getStudentsByLevel($request->value);
+        }
+        return $courses;
     }
 }

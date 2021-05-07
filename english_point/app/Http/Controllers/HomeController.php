@@ -31,6 +31,7 @@ class HomeController extends Controller
         return view('interpretation');
     }
 
+    // Load all the data in the subscription form
     public function inscripcionCursos(){
         $levelModel = new Level();
         $levels = $levelModel->getLevels();
@@ -45,6 +46,7 @@ class HomeController extends Controller
         ]);
     }
 
+    // Store the data comes from the subcription form
     public function registerStudent(Request $request){
         if($request->fullname && $request->email && $request->address && $request->phone){
             if($request->level && $request->modality && $request->size && $request->preference){
@@ -57,6 +59,7 @@ class HomeController extends Controller
         }
     }
 
+    // No authorization page
     public function noAuth(){
         return view('no-auth');
     }

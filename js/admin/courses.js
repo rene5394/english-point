@@ -112,16 +112,20 @@ if(document.getElementById("page-list-courses")){
 
     tableTbodyCourses.addEventListener('click',(e)=> {
         e.preventDefault();
-        if(e.target.classList.contains('btn-success')){
+        if(e.target.classList.contains('edit')){
             
         }
-        if(e.target.classList.contains('btn-primary')){
+        if(e.target.classList.contains('active')){
             let courseid = e.target.parentNode.parentNode.getAttribute('data-id');
             activeCourse(courseid);
         }
-        if(e.target.classList.contains('btn-danger')){
+        if(e.target.classList.contains('deactive')){
             let courseid = e.target.parentNode.parentNode.getAttribute('data-id');
             deactiveCourse(courseid);
+        }
+        if(e.target.classList.contains('payment-link')){
+            let courseid = e.target.parentNode.parentNode.getAttribute('data-id');
+            generatePaymentLink(e.target, courseid);
         }
     });
 }
@@ -209,4 +213,26 @@ function deactiveCourse(courseid){
             })
         }
     });
+}
+
+function generatePaymentLink(e, courseid){
+    let url = e.getAttribute("data-url");
+    url += `/${courseid}`;
+    swal({
+        title: "URL del curso",
+        text: url,
+        icon: "success",
+        button: "Copiar Texto",
+        })
+        .then((value) => {
+            if(value === true){
+                let urlText = document.querySelector('.swal-text');
+                var r = document.createRange();
+                r.selectNode(urlText);
+                window.getSelection().removeAllRanges();
+                window.getSelection().addRange(r);
+                document.execCommand('copy');
+                window.getSelection().removeAllRanges();
+            }
+          });
 }
