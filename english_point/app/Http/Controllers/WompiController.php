@@ -29,76 +29,92 @@ class WompiController extends Controller
     }
 
     public function createTransaction($card, $amount, $user){
-        $client = new Client();
-        $endpoint = 'https://api.wompi.sv/TransaccionCompra';
-        $token = $this->authWompi();
-        $json = json_encode (
-            [
-                'tarjetaCreditoDebido' => [
-                    'numeroTarjeta' => $card->number,
-                    'cvv' => $card->cvc,
-                    'mesVencimiento' => $card->expire_month,
-                    'anioVencimiento' => $card->expire_year
-                ],
-                'monto' => $amount,
-                'emailCliente' => $user->email,
-                'nombreCliente' => $user->name,
-                'formaPago' => 'PagoNormal',
-                'configuracion' => [
-                    'emailsNotificacion'=> 'renet@uassistme.com',
-                    'urlWebhook' => 'https://google.com',
-                    'notificarTransaccionCliente' => true
+        try{
+            $client = new Client();
+            $endpoint = 'https://api.wompi.sv/TransaccionCompra';
+            $token = $this->authWompi();
+            $json = json_encode (
+                [
+                    'tarjetaCreditoDebido' => [
+                        'numeroTarjeta' => $card->number,
+                        'cvv' => $card->cvc,
+                        'mesVencimiento' => $card->expire_month,
+                        'anioVencimiento' => $card->expire_year
+                    ],
+                    'monto' => $amount,
+                    'emailCliente' => $user->email,
+                    'nombreCliente' => $user->name,
+                    'formaPago' => 'PagoNormal',
+                    'configuracion' => [
+                        'emailsNotificacion'=> 'renet@uassistme.com',
+                        'urlWebhook' => 'https://google.com',
+                        'notificarTransaccionCliente' => true
+                    ]
                 ]
-            ]
-        );
+            );
 
-        $response = $client->request('POST', $endpoint, [
-            'body' => $json,
-            'headers' => [
-                'Content-Type' => 'application/json',
-                'Authorization' => 'Bearer ' . $token
-            ]
-        ]);
+            $response = $client->request('POST', $endpoint, [
+                'body' => $json,
+                'headers' => [
+                    'Content-Type' => 'application/json',
+                    'Authorization' => 'Bearer ' . $token
+                ]
+            ]);
 
-        $content = $response->getBody()->getContents();
-        $data = json_decode($content);
-        dd($content);
+            $content = $response->getBody()->getContents();
+            $data = json_decode($content);
+            $response = [false, $data];
+            return $response;
+        }catch (\GuzzleHttp\Exception\ClientException $e) {
+            $error = $e->getResponse()->getBody()->getContents();
+            $err = json_decode($error);
+            $response = [true, $err->mensajes];
+            return $response;
+        }
     }
 
     public function testCreateTransaction(){
-        $client = new Client();
-        $endpoint = 'https://api.wompi.sv/TransaccionCompra';
-        $token = $this->authWompi();
-        $json = json_encode (
-            [
-                'tarjetaCreditoDebido' => [
-                    'numeroTarjeta' => '4111111111111111',
-                    'cvv' => '222', // 111 para rechazado
-                    'mesVencimiento' => 12,
-                    'anioVencimiento' => 2023
-                ],
-                'monto' => 20,
-                'emailCliente' => 'renet@uassistme.com',
-                'nombreCliente' => 'Rene Torres',
-                'formaPago' => 'PagoNormal',
-                'configuracion' => [
-                    'emailsNotificacion'=> 'renet@uassistme.com',
-                    'urlWebhook' => 'https://google.com',
-                    'notificarTransaccionCliente' => true
+        try{ 
+            $client = new Client();
+            $endpoint = 'https://api.wompi.sv/TransaccionCompra';
+            $token = $this->authWompi();
+            $json = json_encode (
+                [
+                    'tarjetaCreditoDebido' => [
+                        'numeroTarjeta' => '4111111111111111', // 4111111111111111
+                        'cvv' => '222', // 111 para rechazado
+                        'mesVencimiento' => 12,
+                        'anioVencimiento' => 2023
+                    ],
+                    'monto' => 20,
+                    'emailCliente' => 'renet@uassistme.com',
+                    'nombreCliente' => 'Rene Torres',
+                    'formaPago' => 'PagoNormal',
+                    'configuracion' => [
+                        'emailsNotificacion'=> 'renet@uassistme.com',
+                        'urlWebhook' => 'https://google.com',
+                        'notificarTransaccionCliente' => true
+                    ]
                 ]
-            ]
-        );
+            );
 
-        $response = $client->request('POST', $endpoint, [
-            'body' => $json,
-            'headers' => [
-                'Content-Type' => 'application/json',
-                'Authorization' => 'Bearer ' . $token
-            ]
-        ]);
+            $response = $client->request('POST', $endpoint, [
+                'body' => $json,
+                'headers' => [
+                    'Content-Type' => 'application/json',
+                    'Authorization' => 'Bearer ' . $token
+                ]
+            ]);
 
-        $content = $response->getBody()->getContents();
-        $data = json_decode($content);
-        dd($content);
+            $content = $response->getBody()->getContents();
+            $data = json_decode($content);
+            dd($content);
+            return $content;
+        }catch (\GuzzleHttp\Exception\ClientException $e) {
+            $error = $e->getResponse()->getBody()->getContents();
+            $err = json_decode($error);
+            dd($err->mensajes);
+            return $err->mensajes;
+        }
     }
 }

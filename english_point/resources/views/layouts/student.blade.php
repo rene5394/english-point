@@ -29,7 +29,7 @@
                 <hr>
                 <ul class="nav nav-pills flex-column mb-auto">
                     <li class="mb-1">
-                        <button class="btn btn-toggle align-items-center rounded text-white w-100 py-2" data-bs-toggle="collapse" data-bs-target="#courses-collapse" aria-expanded="true">
+                        <button class="btn btn-toggle align-items-center rounded collapsed text-white w-100 py-2" data-bs-toggle="collapse" data-bs-target="#courses-collapse" aria-expanded="false">
                             Cursos Grupales
                         </button>
                         <div class="collapse" id="courses-collapse" style="">
@@ -83,5 +83,6 @@
         <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 
         <script type="text/javascript" src="{{url('/js/admin/courses.js')}}"></script>
+        <script type="text/javascript" src="{{url('/js/student/pay-subscription.js')}}"></script>
     </body>
 </html>

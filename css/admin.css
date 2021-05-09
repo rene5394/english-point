@@ -8,7 +8,7 @@ h6 {
     font-family: "Lato", sans-serif;
 }
 
-p {
+p:not(.p-form) {
     font-family: "Roboto", sans-serif;
     font-weight: 300;
     font-size: 15px;
@@ -37,11 +37,15 @@ h2 {
 }
 
 h3 {
-    font-size: 20px !important;
+    font-size: 25px !important;
 }
 
 h4 {
     font-size: 20px !important;
+}
+
+h4 {
+    font-size: 18px !important;
 }
 
 a {
@@ -64,6 +68,15 @@ a:hover {
 
 .width-fit-content {
     width: fit-content;
+}
+
+.exp-fields {
+    width: 48% !important;
+}
+
+#expmonth {
+    margin-right: 4%;
+    float: left;
 }
 
 /* Backgrounds */

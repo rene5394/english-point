@@ -28,7 +28,7 @@ class Course extends Model
             }catch (\Exception $e) {
                 DB::rollBack();
                 return false;
-      }
+            }
     }
 
     public function getCoursesByModality($modality_id){
@@ -49,7 +49,7 @@ class Course extends Model
             }catch (\Exception $e) {
                 DB::rollBack();
                 return false;
-      }
+            }
     }
 
     public function getCoursesByLevel($level_id){
@@ -70,7 +70,7 @@ class Course extends Model
             }catch (\Exception $e) {
                 DB::rollBack();
                 return false;
-      }
+            }
     }    
 
     public function activeCourse($courseid){
@@ -128,5 +128,13 @@ class Course extends Model
                 DB::rollBack();
                 return false;
             }
+    }
+
+    public function getCoursePrice($courseid){
+                $price = DB::table('courses')
+                    ->where('courses.id', '=', $courseid)
+                    ->select('price')
+                    ->first();
+                return $price;
     }
 }
