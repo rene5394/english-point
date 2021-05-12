@@ -30,23 +30,12 @@
                 <ul class="nav nav-pills flex-column mb-auto">
                     <li class="mb-1">
                         <button class="btn btn-toggle align-items-center rounded collapsed text-white w-100 py-2" data-bs-toggle="collapse" data-bs-target="#courses-collapse" aria-expanded="false">
-                            Cursos Grupales
+                            Menú
                         </button>
                         <div class="collapse" id="courses-collapse" style="">
                             <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
-                            <li><a href="{{route('listCourses')}}" class="link-dark rounded text-white">Lista de cursos</a></li>
-                            <li><a href="{{route('studentsByCourse')}}" class="link-dark rounded text-white">Estudiantes por curso</a></li>
-                            </ul>
-                        </div>
-                    </li>
-                    <li class="mb-1">
-                        <button class="btn btn-toggle align-items-center rounded collapsed text-white w-100 py-2" data-bs-toggle="collapse" data-bs-target="#reinforcement-collapse" aria-expanded="false">
-                            Pagos
-                        </button>
-                        <div class="collapse" id="reinforcement-collapse">
-                            <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
-                            <li><a href="#" class="link-dark rounded text-white">Generar página de pago</a></li>
-                            <li><a href="#" class="link-dark rounded text-white">Ver transacciones</a></li>
+                            <li><a href="{{route('dashboardStudent')}}" class="link-dark rounded text-white">Mi perfil</a></li>
+                            <li><a href="{{route('myTransactions')}}" class="link-dark rounded text-white">Mis transacciones</a></li>
                             </ul>
                         </div>
                     </li>
@@ -58,13 +47,13 @@
                         <strong>{{Auth::user()->name}}</strong>
                     </a>
                     <ul class="dropdown-menu dropdown-menu-dark text-small shadow" aria-labelledby="dropdownUser1">
-                        <li><a class="dropdown-item" href="#">Profile</a></li>
+                        <li><a class="dropdown-item" href="{{route('dashboardStudent')}}">Mi perfil</a></li>
                         <li><hr class="dropdown-divider"></li>
                         <!-- Logout -->
                         <li>
                             <form method="POST" action="{{ route('logout') }}">
                                 @csrf
-                                    <input class="dropdown-item" type="submit" value="Log out">
+                                    <input class="dropdown-item" type="submit" value="Cerrar sesión">
                             </form>
                         </li>
                     </ul>
@@ -84,5 +73,6 @@
 
         <script type="text/javascript" src="{{url('/js/admin/courses.js')}}"></script>
         <script type="text/javascript" src="{{url('/js/student/pay-subscription.js')}}"></script>
+        <script type="text/javascript" src="{{url('/js/student/dashboard.js')}}"></script>
     </body>
 </html>

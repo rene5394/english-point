@@ -66,7 +66,7 @@
                             <td><button type="button" class="btn btn-primary active">Activar</button></td>
                             <td><button type="button" class="btn btn-danger deactive" disabled>Desactivar</button></td>
                             @endif
-                            <td><button type="button" class="btn btn-warning payment-link" data-url="{{url('/pagar-suscripcion')}}">URL de pago</button></td>
+                            <td><button type="button" class="btn btn-warning payment-link" data-url="{{url('/estudiante/pagar-suscripcion')}}">URL de pago</button></td>
                         </tr>
                     @endforeach
                     </tbody>

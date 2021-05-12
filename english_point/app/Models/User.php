@@ -61,4 +61,33 @@ class User extends Authenticatable
             return false;
         }
     }
+
+    public function getUserData($userid){
+        DB::beginTransaction();
+        try {
+            $userData = DB::table('users')
+                ->join('notification_preferences', 'notification_preferences.id', '=', 'users.notification_preference_id')
+                ->where('users.id', '=', $userid)
+                ->select('name', 'email', 'address', 'phone', 'preference', 'notification_preferences.id as noti_id')
+                ->get();
+            DB::commit();
+            return $userData->toArray();
+        }catch (\Exception $e) {
+            DB::rollBack();
+            return false;
+        }
+    }
+
+    public function editUserData($user){
+            $userEdited = DB::table('users')
+              ->where('id', '=', $user->id)
+              ->update(['name' => $user->name, 'email' => $user->email,
+                'address' => $user->address, 'phone' => $user->phone,
+                'notification_preference_id' => $user->preference
+              ]);
+            if($userEdited === 1){
+                return true;
+            }
+            return false;
+    }
 }

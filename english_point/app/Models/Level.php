@@ -13,15 +13,15 @@ class Level extends Model
 
     public function getLevels(){
         DB::beginTransaction();
-            try {
-                $courses = DB::table('course_levels')
-                    ->select('id', 'level')
-                    ->get();
-                DB::commit();
-                return $courses->toArray();
-            }catch (\Exception $e) {
-                DB::rollBack();
-                return false;
-      }
+        try {
+            $courses = DB::table('course_levels')
+                ->select('id', 'level')
+                ->get();
+            DB::commit();
+            return $courses->toArray();
+        }catch (\Exception $e) {
+            DB::rollBack();
+            return false;
+        }
     }
 }

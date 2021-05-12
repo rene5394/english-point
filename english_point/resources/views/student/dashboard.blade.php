@@ -1,125 +1,37 @@
 @extends('layouts.student')
 
 @section('content')
-<div class="container-fluid m-0 p-0">
-    <div class="row row-cols-3 align-items-stretch py-5">
+<div id="page-student-dashboard" class="container-fluid m-0 p-0">
+    <input type="hidden" id="editUserData" data-url="{{route('estudianteEditarInformacion')}}" />
+    <div class="row row-cols-1 align-items-stretch py-5">
 
         <div class="col">
-            <div class="card card-cover h-100 overflow-hidden rounded-5 shadow-lg p-5" style="background-image: url('unsplash-photo-1.jpg');">
-                <h2 class="text-center fw-bold">Cursos</h2>
-            </div>
-        </div>
+                <h2 class="text-center fw-bold mb-3">Mi perfil</h2>
+                <p class="mb-1"><span class="fw-bold">Nombre:</span></p>
+                <input id="name" name="name" class="form-control form-edit-fields mb-4" type="text" value="{{$userData[0]->name}}" disabled>
+                <p class="mb-1"><span class="fw-bold">Email:</span></p>
+                <input id="email" name="email" class="form-control form-edit-fields mb-4" type="text" value="{{$userData[0]->email}}" disabled>
+                <p class="mb-1"><span class="fw-bold">Dirección:</span></p>
+                <input id="address" name="address" class="form-control form-edit-fields mb-3" type="text" value="{{$userData[0]->address}}" disabled>
+                <p class="mb-1"><span class="fw-bold">Teléfono:</span></p>
+                <input id="phone" name="phone" class="form-control form-edit-fields mb-3" type="text" value="{{$userData[0]->phone}}" disabled>
+                <p class="mb-1"><span class="fw-bold">Preferencia de notificación:</span></p>
+                <select id="preference" name="preference" class="select-preference form-control form-edit-fields mb-4" disabled>
+                @foreach ($preferences as $preference)
+                    @if($preference->id == $userData[0]->noti_id)
+                        <option value="{{$preference->id}}" selected>{{$preference->preference}}</option>
+                    @else
+                        <option value="{{$preference->id}}">{{$preference->preference}}</option>
+                    @endif
+                @endforeach
+                </select>
 
-        <div class="col">
-            <div class="card card-cover h-100 overflow-hidden text-white bg-dark rounded-5 shadow-lg" style="background-image: url('unsplash-photo-2.jpg');">
-                <div class="d-flex flex-column h-100 p-5 pb-3 text-white text-shadow-1">
-                    <h2 class="pt-5 mt-5 mb-4 display-6 lh-1 fw-bold">Much longer title that wraps to multiple lines</h2>
-                    <ul class="d-flex list-unstyled mt-auto">
-                        <li class="me-auto">
-                            <img src="https://github.com/twbs.png" alt="Bootstrap" width="32" height="32" class="rounded-circle border border-white">
-                        </li>
-                        <li class="d-flex align-items-center me-3">
-                            <svg class="bi me-2" width="1em" height="1em"><use xlink:href="#geo-fill"></use></svg>
-                            <small>Pakistan</small>
-                        </li>
-                        <li class="d-flex align-items-center">
-                            <svg class="bi me-2" width="1em" height="1em"><use xlink:href="#calendar3"></use></svg>
-                            <small>4d</small>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-
-        <div class="col">
-            <div class="card card-cover h-100 overflow-hidden text-white bg-dark rounded-5 shadow-lg" style="background-image: url('unsplash-photo-3.jpg');">
-                <div class="d-flex flex-column h-100 p-5 pb-3 text-shadow-1">
-                    <h2 class="pt-5 mt-5 mb-4 display-6 lh-1 fw-bold">Another longer title belongs here</h2>
-                    <ul class="d-flex list-unstyled mt-auto">
-                        <li class="me-auto">
-                            <img src="https://github.com/twbs.png" alt="Bootstrap" width="32" height="32" class="rounded-circle border border-white">
-                        </li>
-                        <li class="d-flex align-items-center me-3">
-                            <svg class="bi me-2" width="1em" height="1em"><use xlink:href="#geo-fill"></use></svg>
-                            <small>California</small>
-                        </li>
-                        <li class="d-flex align-items-center">
-                            <svg class="bi me-2" width="1em" height="1em"><use xlink:href="#calendar3"></use></svg>
-                            <small>5d</small>
-                        </li>
-                    </ul>
-                </div>
-            </div>
+                <button type="button" class="btn btn-success edit me-md-2">Editar</button>
+                <button type="button" class="btn btn-primary save" disabled>Guardar Cambios</button>
         </div>
 
     </div>
 
-    <div class="row row-cols-3 align-items-stretch py-5">
-
-        <div class="col">
-            <div class="card card-cover h-100 overflow-hidden text-white bg-dark rounded-5 shadow-lg" style="background-image: url('unsplash-photo-1.jpg');">
-                <div class="d-flex flex-column h-100 p-5 pb-3 text-white text-shadow-1">
-                    <h2 class="pt-5 mt-5 mb-4 display-6 lh-1 fw-bold">Short title, long jacket</h2>
-                    <ul class="d-flex list-unstyled mt-auto">
-                        <li class="me-auto">
-                            <img src="https://github.com/twbs.png" alt="Bootstrap" width="32" height="32" class="rounded-circle border border-white">
-                        </li>
-                        <li class="d-flex align-items-center me-3">
-                            <svg class="bi me-2" width="1em" height="1em"><use xlink:href="#geo-fill"></use></svg>
-                            <small>Earth</small>
-                        </li>
-                        <li class="d-flex align-items-center">
-                            <svg class="bi me-2" width="1em" height="1em"><use xlink:href="#calendar3"></use></svg>
-                            <small>3d</small>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-
-        <div class="col">
-            <div class="card card-cover h-100 overflow-hidden text-white bg-dark rounded-5 shadow-lg" style="background-image: url('unsplash-photo-2.jpg');">
-                <div class="d-flex flex-column h-100 p-5 pb-3 text-white text-shadow-1">
-                    <h2 class="pt-5 mt-5 mb-4 display-6 lh-1 fw-bold">Much longer title that wraps to multiple lines</h2>
-                    <ul class="d-flex list-unstyled mt-auto">
-                        <li class="me-auto">
-                            <img src="https://github.com/twbs.png" alt="Bootstrap" width="32" height="32" class="rounded-circle border border-white">
-                        </li>
-                        <li class="d-flex align-items-center me-3">
-                            <svg class="bi me-2" width="1em" height="1em"><use xlink:href="#geo-fill"></use></svg>
-                            <small>Pakistan</small>
-                        </li>
-                        <li class="d-flex align-items-center">
-                            <svg class="bi me-2" width="1em" height="1em"><use xlink:href="#calendar3"></use></svg>
-                            <small>4d</small>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-
-        <div class="col">
-            <div class="card card-cover h-100 overflow-hidden text-white bg-dark rounded-5 shadow-lg" style="background-image: url('unsplash-photo-3.jpg');">
-                <div class="d-flex flex-column h-100 p-5 pb-3 text-shadow-1">
-                    <h2 class="pt-5 mt-5 mb-4 display-6 lh-1 fw-bold">Another longer title belongs here</h2>
-                    <ul class="d-flex list-unstyled mt-auto">
-                        <li class="me-auto">
-                            <img src="https://github.com/twbs.png" alt="Bootstrap" width="32" height="32" class="rounded-circle border border-white">
-                        </li>
-                        <li class="d-flex align-items-center me-3">
-                            <svg class="bi me-2" width="1em" height="1em"><use xlink:href="#geo-fill"></use></svg>
-                            <small>California</small>
-                        </li>
-                        <li class="d-flex align-items-center">
-                            <svg class="bi me-2" width="1em" height="1em"><use xlink:href="#calendar3"></use></svg>
-                            <small>5d</small>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-        
-    </div>
 </div>
 
 @endsection

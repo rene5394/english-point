@@ -46,4 +46,27 @@ class Transaction extends Model
             return false;
         }
     }
+
+    public function getTransactions($userid){
+        DB::beginTransaction();
+        try {
+            $transactions = DB::table('transactions')
+                ->join('users_courses', 'users_courses.id', '=', 'transactions.users_courses_id')
+                ->join('users', 'users.id', '=', 'users_courses.user_id')
+                ->join('courses', 'courses.id', '=', 'users_courses.course_id')
+                ->join('course_levels', 'course_levels.id', '=', 'courses.course_level_id')
+                ->join('course_modalities', 'course_modalities.id', '=', 'courses.course_modality_id')
+                ->where('users.id', '=', $userid)
+                ->select('modality', 'level', 'wompi_id_transaction', 'amount',
+                        DB::raw('DATE_FORMAT(transactions.created_at, "%M %d %Y %h:%i %p")as created_at')
+                )
+                ->get();
+            DB::commit();
+            return $transactions->toArray();
+        }catch (\Exception $e) {
+            DB::rollBack();
+            return false;
+        }
+    }
+
 }
