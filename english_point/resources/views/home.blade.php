@@ -73,8 +73,8 @@
         </div>
     </div>
 
-    <span id="testimonios" class="anchor-links"></span>
-    <div class="container py-5">
+    <span id="testimonios" class="anchor-links d-none"></span>
+    <div class="container py-5 d-none">
         <div class="row">
             <div class="col">
                 <h2 class="text-center mb-4">Testimonios</h2>
@@ -86,7 +86,7 @@
     </div>
 
     <span id="contactanos" class="anchor-links"></span>
-    <div class="container-fluid gray-bg p-0 m-0">
+    <div class="container-fluid p-0 m-0">
         <div class="container py-5">
             <div class="row">
                 <div class="col-md-6 offset-md-3">
