@@ -73,14 +73,14 @@
                 <div class="row py-5">
                     <div class="col-md-3">
                         <h4 class="text-center text-white text-white mb-4">Contáctanos</h4>
-                        <p class="text-white text-center fw-bold mb-3">Teléfono:<br /><a class="text-white fw-light" href="tel:7777-7777">7777-7777</a></p>
-                        <p class="text-white text-center fw-bold">Correo:<br /><a class="text-white fw-light" href="mailto:correo@correo.com">correo@correo.com</a></p>
+                        <p class="text-white text-center fw-bold mb-3">Teléfono:<br /><a class="text-white fw-light" href="tel:6017-6083">6017-6083</a></p>
+                        <p class="text-white text-center fw-bold">Correo:<br /><a class="text-white fw-light" href="mailto:julio.rivera@englishpointsv.com">julio.rivera@englishpointsv.com</a></p>
                     </div>
                     <div class="col-md-3">
                         <h4 class="text-center text-white mb-4">Cursos</h4>
-                        <p class="text-center"><a class="text-white fw-light" href="#">Básico</a></p>
-                        <p class="text-center"><a class="text-white fw-light" href="#">Intermedio</a></p>
-                        <p class="text-center"><a class="text-white fw-light" href="#">Avanzado</a></p>
+                        <p class="text-center"><a class="text-white fw-light" href="{{route('courses')}}">Básico</a></p>
+                        <p class="text-center"><a class="text-white fw-light" href="{{route('courses')}}">Intermedio</a></p>
+                        <p class="text-center"><a class="text-white fw-light" href="{{route('courses')}}">Avanzado</a></p>
                     </div>
                     <div class="col-md-3">
                         <h4 class="text-center text-white mb-4">Refuerzo</h4>
@@ -90,6 +90,10 @@
                     </div>
                     <div class="col-md-3">
                         <h4 class="text-center text-white mb-4">Siguenos en</h4>
+                        <div class="d-table mx-auto">
+                            <a href="https://www.facebook.com/englishpointSA" target="_blank" rel="nofollow"><img class="mx-1" src="{{url('img/facebook.png')}}" alt="Facebook" width="35" height="auto"></a>
+                            <a href="https://www.instagram.com/englishpointsv/" target="_blank" rel="nofollow"><img class="mx-1" src="{{url('img/instagram.png')}}" alt="Instagram" width="35" height="auto"></a>
+                        </div>
                     </div>
                 </div>
                 <hr class="bg-white opacity-100 m-0" />
@@ -104,6 +108,7 @@
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.min.js" integrity="sha384-j0CNLUeiqtyaRmlzUHCPZ+Gy5fQu0dQ6eZ/xAww941Ai1SxSY+0EQqNXNE6DZiVc" crossorigin="anonymous"></script>
         <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 
+        <script type="text/javascript" src="{{url('/js/website/home.js')}}"></script>
         <script type="text/javascript" src="{{url('/js/website/courses.js')}}"></script>
     </body>
 </html>

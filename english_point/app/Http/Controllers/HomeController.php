@@ -8,6 +8,7 @@ use App\Models\Level;
 use App\Models\Modality;
 use App\Models\User;
 use App\Models\NotificationPreference;
+use Mail;
 
 class HomeController extends Controller
 {
@@ -62,5 +63,25 @@ class HomeController extends Controller
     // No authorization page
     public function noAuth(){
         return view('no-auth');
+    }
+
+    // Contact form
+    public function contactForm(Request $request){
+        if($request->name != '' && $request->email != '' && $request->phone != '' && $request->message != ''){
+            $to = 'rene.uassistme@gmail.com';
+            $cc = 'rene_edgardo_2@hotmail.com';
+            \Mail::send('mail.contactForm',
+            array(
+                'name' => $request->name,
+                'email' => $request->email,
+                'phone' => $request->phone,
+                'emailMessage' => $request->message
+            ), function($messageInner) use($to, $cc){
+                $messageInner->from(Array("app@uassistme.com"=>"DO NOT REPLY"));
+                $messageInner->to($to)->cc($cc)->subject('Email Notifiaction Subject');
+            });
+            return json_encode(array("status"=>200));
+        }
+        return json_encode(array("status"=>500));
     }
 }

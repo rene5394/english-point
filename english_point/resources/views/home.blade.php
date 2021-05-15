@@ -2,6 +2,7 @@
 
 @section('content')
     <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
+        <input type="hidden" id="contact-form-url" data-url="{{route('contact-form')}}" />
         <div class="carousel-indicators">
             <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
             <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
@@ -50,22 +51,22 @@
             </div>
             <div class="row pb-3">
                 <div class="col-md-3">
-                    <img class="img-fluid mb-3" src="{{url('/img/slide1.jpg')}}"/>
+                    <img class="img-fluid img-max-width-150 mb-3" src="{{url('/img/cursos-grupales.png')}}"/>
                     <h3 class="text-center mb-3">Cursos grupales</h3>
                     <a class="btn btn-dark-blue-bg mx-auto d-table" href="{{route('courses')}}" role="button">Ver cursos</a>
                 </div>
                 <div class="col-md-3 mt-5 mt-md-0">
-                    <img class="img-fluid mb-3" src="{{url('/img/slide1.jpg')}}"/>
+                    <img class="img-fluid img-max-width-150 mb-3" src="{{url('/img/refuerzo.png')}}"/>
                     <h3 class="text-center mb-3">Refuerzo</h3>
                     <a class="btn btn-dark-blue-bg mx-auto d-table" href="{{route('reinforcement')}}" role="button">Ver opciones</a>
                 </div>
                 <div class="col-md-3 mt-5 mt-md-0">
-                    <img class="img-fluid mb-3" src="{{url('/img/slide1.jpg')}}"/>
+                    <img class="img-fluid img-max-width-150 mb-3" src="{{url('/img/traduccion.png')}}"/>
                     <h3 class="text-center mb-3">Traducción</h3>
                     <a class="btn btn-dark-blue-bg mx-auto d-table" href="{{route('translation')}}" role="button">Más información</a>
                 </div>
                 <div class="col-md-3 mt-5 mt-md-0">
-                    <img class="img-fluid mb-3" src="{{url('/img/slide1.jpg')}}"/>
+                    <img class="img-fluid img-max-width-150 mb-3" src="{{url('/img/interpretacion.png')}}"/>
                     <h5 class="text-center mb-3">Interpretación</h5>
                     <a class="btn btn-dark-blue-bg mx-auto d-table" href="{{route('interpretation')}}" role="button">Más información</a>
                 </div>
@@ -91,15 +92,17 @@
             <div class="row">
                 <div class="col-md-6 offset-md-3">
                     <h2 class="text-center mb-4">Contáctanos</h2>
-                    <form id="contact-form">
+                    <div id="contact-form">
                         <label for="name">Nombre:</label><br>
                         <input type="text" id="name" name="name"><br>
                         <label for="email">Correo:</label><br>
                         <input type="email" id="email" name="email"><br>
-                        <label for="email">Teléfono:</label><br>
-                        <input type="tel" id="telefono" name="telefono">
-                        <input type="submit" id="enviar" class="btn-dark-blue-bg text-white mt-2" name="enviar" value="Enviar">
-                    </form>
+                        <label for="phone">Teléfono:</label><br>
+                        <input type="tel" id="phone" name="phone">
+                        <label for="message">Mensaje:</label><br>
+                        <textarea id="message" name="message"></textarea>
+                        <input type="submit" id="send" class="btn-dark-blue-bg text-white mt-2" name="send" value="Enviar">
+                    </div>
                 </div>
             </div>
         </div>

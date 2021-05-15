@@ -56,6 +56,12 @@ a:hover {
     max-height: 75vh !important;
 }
 
+.img-max-width-150 {
+    max-width: 150px;
+    display: block;
+    margin: auto;
+}
+
 /* Buttons */
 .btn-dark-blue-bg {
     background-color: #030068;
@@ -136,7 +142,8 @@ body {
 }
 
 /* Contact Form */
-#contact-form input {
+#contact-form input,
+#contact-form textarea {
     width: 100%;
     margin-bottom: 12px;
     border: solid 1px #cecece;
