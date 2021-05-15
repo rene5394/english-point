@@ -143,7 +143,8 @@ body {
 
 /* Contact Form */
 #contact-form input,
-#contact-form textarea {
+#contact-form textarea,
+#contact-form select {
     width: 100%;
     margin-bottom: 12px;
     border: solid 1px #cecece;
