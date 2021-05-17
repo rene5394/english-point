@@ -31,7 +31,7 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="nav ms-auto mb-2 mb-lg-0 d-lg-flex d-block">
                         <li class="nav-item">
-                            <a class="nav-link" href="{{route('home')}}#acerca-de-nosotros">Acerca de nosotros</a>
+                            <a class="nav-link" href="{{route('home')}}#acerca-de-nosotros">Acerca de English Point</a>
                         </li>
                         <li class="nav-item dropdown">
                             <a class="nav-link" href="{{route('home')}}#servicios">Servicios <i class="bi bi-chevron-down d-none d-lg-inline"></i></a>
