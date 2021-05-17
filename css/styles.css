@@ -102,7 +102,7 @@ a:hover {
 }
 
 .services-bg {
-    background-image: url("http://localhost:3000/img/services-bg.jpg");
+    background-image: url("../img/services-bg.jpg");
 }
 
 /* Opacities */
