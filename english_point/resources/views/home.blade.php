@@ -3,7 +3,7 @@
 @section('content')
     <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
         <input type="hidden" id="contact-form-url" data-url="{{route('contact-form')}}" />
-        <div class="carousel-indicators">
+        <div class="carousel-indicators d-none">
             <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
             <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
             <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
@@ -90,7 +90,7 @@
     <div class="container-fluid p-0 m-0">
         <div class="container py-5">
             <div class="row">
-                <div class="col-md-6 offset-md-3">
+                <div class="col-md-6">
                     <h2 class="text-center mb-4">Contáctanos</h2>
                     <div id="contact-form">
                         <label for="name">Nombre:</label><br>
@@ -103,6 +103,9 @@
                         <textarea id="message" name="message"></textarea>
                         <input type="submit" id="send" class="btn-dark-blue-bg text-white mt-2" name="send" value="Enviar">
                     </div>
+                </div>
+                <div class="col-md-6">
+                    <img class="img-fluid" src="{{url('/img/woman-service.jpg')}}" alt="Service">
                 </div>
             </div>
         </div>

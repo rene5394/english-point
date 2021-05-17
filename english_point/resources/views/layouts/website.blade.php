@@ -34,7 +34,7 @@
                             <a class="nav-link" href="{{route('home')}}#acerca-de-nosotros">Acerca de nosotros</a>
                         </li>
                         <li class="nav-item dropdown">
-                            <a class="nav-link" href="{{route('home')}}#servicios">Servicios <i class="bi bi-chevron-down"></i></a>
+                            <a class="nav-link" href="{{route('home')}}#servicios">Servicios <i class="bi bi-chevron-down d-none d-lg-inline"></i></a>
                             <ul class="dropdown-menu">
                                 <li><a class="dropdown-item" href="{{route('courses')}}">Cursos</a></li>
                                 <li><a class="dropdown-item" href="{{route('reinforcement')}}">Refuerzo</a></li>
