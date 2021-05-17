@@ -17,11 +17,41 @@
         <link rel="stylesheet" href="{{url('/css/admin.css')}}">
     </head>
     <body>
+
+    <!-- Menu mobile instead sidebar -->    
+    <header class="bg-danger fixed-top d-block d-lg-none">
+        <nav class="navbar navbar-expand-lg navbar-light bg-white">
+            <div class="container">
+                 <a class="navbar-brand" href="{{route('home')}}">
+                    <img src="{{url('img/english-point-logo.png')}}" alt="English Point Logo" width="65" height="auto">
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="nav ms-auto mb-2 mb-lg-0 d-lg-flex d-block">
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{route('dashboardStudent')}}">Mi Perfil</a>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link" href="{{route('myTransactions')}}">Mis transacciones</a>
+                        </li>
+                        <li class="nav-item">
+                            <form method="POST" action="{{ route('logout') }}">
+                                @csrf
+                                    <input class="dropdown-item" type="submit" value="Cerrar sesión">
+                            </form>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
     
     <div class="container-fluid" id="wrapper">
         <div class="row">
             <!-- Sidebar -->
-            <div id="sidebar" class="d-flex flex-column p-3 text-white dark-blue-bg vh-100 float-start position-fixed">
+            <div id="sidebar" class="d-flex flex-column p-3 text-white dark-blue-bg vh-100 float-start position-fixed d-none d-lg-block">
                 <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-white text-decoration-none">
                     <i class="bi bi-back me-2"></i>
                     <span class="fs-4">English Point</span>

@@ -195,3 +195,9 @@ a:hover {
     width: -webkit-fill-available; /* Mozilla-based browsers will ignore this. */
     width: fill-available;
 }
+
+@media all and (max-width: 992px) {
+    #content-next-sidebar {
+        margin-left: 0px;
+    }
+}
