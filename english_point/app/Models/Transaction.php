@@ -47,7 +47,7 @@ class Transaction extends Model
         }
     }
 
-    public function getTransactions($userid){
+    public function getUserTransactions($userid){
         DB::beginTransaction();
         try {
             $transactions = DB::table('transactions')
@@ -58,6 +58,29 @@ class Transaction extends Model
                 ->join('course_modalities', 'course_modalities.id', '=', 'courses.course_modality_id')
                 ->where('users.id', '=', $userid)
                 ->select('modality', 'level', 'wompi_id_transaction', 'amount',
+                        DB::raw('DATE_FORMAT(transactions.created_at, "%M %d %Y %h:%i %p")as created_at')
+                )
+                ->get();
+            DB::commit();
+            return $transactions->toArray();
+        }catch (\Exception $e) {
+            DB::rollBack();
+            return false;
+        }
+    }
+
+    public function getTransactions(){
+        DB::beginTransaction();
+        try {
+            $transactions = DB::table('transactions')
+                ->join('users_courses', 'users_courses.id', '=', 'transactions.users_courses_id')
+                ->join('users', 'users.id', '=', 'users_courses.user_id')
+                ->join('courses', 'courses.id', '=', 'users_courses.course_id')
+                ->join('course_levels', 'course_levels.id', '=', 'courses.course_level_id')
+                ->join('course_modalities', 'course_modalities.id', '=', 'courses.course_modality_id')
+                ->join('course_schedules', 'course_schedules.id', '=', 'courses.course_schedule_id')
+                ->whereRaw("transactions.created_at BETWEEN CONCAT(CURDATE(), ' 00:00:00') - INTERVAL 7 DAY AND CONCAT(CURDATE(), ' 23:59:59')")
+                ->select('name','modality', 'level', 'schedule', 'wompi_id_transaction', 'amount',
                         DB::raw('DATE_FORMAT(transactions.created_at, "%M %d %Y %h:%i %p")as created_at')
                 )
                 ->get();

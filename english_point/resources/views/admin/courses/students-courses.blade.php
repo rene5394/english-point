@@ -5,7 +5,7 @@
     <input type="hidden" id="coursesByPattern" data-url="{{route('admin.coursesByPattern')}}" />
     <input type="hidden" id="studentsByPattern" data-url="{{route('admin.studentsByPattern')}}" />
     <div class="row row-cols-3 align-items-stretch">
-        <div class="col-md-12">
+        <div class="col-md-6">
             <h2 class="w-100 mb-3 mt-2">Búsqueda de Estudiantes</h2>
             <div id="card-ticket-report" class="card rounded-0">
                 <div class="card-header row mx-0 py-4">
@@ -51,6 +51,8 @@
                     <button id="searchStudents" class="btn btn-success ml-md-2 mt-2 mt-md-0">Buscar</button>
                 </div>
             </div>
+        </div>    
+        <div class="col-md-12">    
             <table class="table table-striped table-bordered mt-4">
                 <thead class="table-dark dark-blue-bg">
                     <tr>

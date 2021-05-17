@@ -5,7 +5,7 @@ h3,
 h4,
 h5,
 h6 {
-    font-family: "Lato", sans-serif;
+    font-family: "Maven Pro", sans-serif;
 }
 
 p {
@@ -34,6 +34,10 @@ h3 {
     font-size: 20px !important;
 }
 
+h3.px25 {
+    font-size: 25px !important;
+}
+
 h4 {
     font-size: 20px !important;
 }
@@ -45,6 +49,11 @@ a {
 a:hover {
     color: #030068;
     opacity: 0.75;
+}
+
+.list-courses {
+    font-size: 20px;
+    line-height: 1.8em;
 }
 
 /* Visual Views */
@@ -92,6 +101,10 @@ a:hover {
     background-color: #f60103;
 }
 
+.services-bg {
+    background-image: url("http://localhost:3000/img/services-bg.jpg");
+}
+
 /* Opacities */
 .opacity-100 {
     opacity: 1;
@@ -108,10 +121,21 @@ body {
     position: absolute;
 }
 
+.py-6 {
+    padding: 120px 0;
+}
+
 @media screen and (max-width: 767px) {
     .anchor-links {
         margin-top: -90px !important;
         position: absolute;
+    }
+    .py-6 {
+        padding: 80px 0;
+    }
+    .row {
+        padding-left: 20px;
+        padding-right: 20px;
     }
 }
 

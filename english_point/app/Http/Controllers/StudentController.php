@@ -30,7 +30,7 @@ class StudentController extends Controller
 
     public function myTransactions(){
         $transactionModel = new Transaction();
-        $transactions = $transactionModel->getTransactions(Auth::user()->id);
+        $transactions = $transactionModel->getUserTransactions(Auth::user()->id);
         return view('student.my-transactions',[
             'transactions'=> $transactions
         ]);

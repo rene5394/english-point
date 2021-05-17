@@ -12,9 +12,10 @@
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css">
         <link rel="preconnect" href="https://fonts.gstatic.com">
-        <link href="https://fonts.googleapis.com/css2?family=Lato:wght@100;300;400;700&display=swap" rel="stylesheet">
-        <link href="https://fonts.googleapis.com/css2?family=Lato:wght@100;300;400;700&family=Roboto:wght@100;300;400&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Maven+Pro:wght@400;500;600;700&display=swap" rel="stylesheet">
         <link rel="stylesheet" href="{{url('/css/admin.css')}}">
+        <link rel="stylesheet" href="{{url('/css/datepicker.css')}}">
     </head>
     <body>
     
@@ -46,7 +47,7 @@
                         <div class="collapse" id="reinforcement-collapse">
                             <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
                             <li><a href="#" class="link-dark rounded text-white">Generar página de pago</a></li>
-                            <li><a href="#" class="link-dark rounded text-white">Ver transacciones</a></li>
+                            <li><a href="{{route('transactions')}}" class="link-dark rounded text-white">Ver transacciones</a></li>
                             </ul>
                         </div>
                     </li>
@@ -54,7 +55,7 @@
                 <hr>
                 <div class="dropdown">
                     <a href="#" class="d-flex align-items-center text-white text-decoration-none dropdown-toggle" id="dropdownUser1" data-bs-toggle="dropdown" aria-expanded="false">
-                        <img src="https://github.com/mdo.png" alt="mdo" width="32" height="32" class="rounded-circle me-2">
+                        <img src="https://github.com/mdo.png" alt="mdo" width="32" height="32" class="rounded-circle me-2 d-none">
                         <strong>{{Auth::user()->name}}</strong>
                     </a>
                     <ul class="dropdown-menu dropdown-menu-dark text-small shadow" aria-labelledby="dropdownUser1">
@@ -82,7 +83,10 @@
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.min.js" integrity="sha384-j0CNLUeiqtyaRmlzUHCPZ+Gy5fQu0dQ6eZ/xAww941Ai1SxSY+0EQqNXNE6DZiVc" crossorigin="anonymous"></script>
         <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 
+        <script type="text/javascript" src="{{url('/js/admin/datepicker.js')}}"></script>
         <script type="text/javascript" src="{{url('/js/admin/courses.js')}}"></script>
         <script type="text/javascript" src="{{url('/js/admin/students-course.js')}}"></script>
+        <script type="text/javascript" src="{{url('/js/admin/transactions.js')}}"></script>
+        
     </body>
 </html>

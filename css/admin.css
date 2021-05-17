@@ -5,7 +5,7 @@ h3,
 h4,
 h5,
 h6 {
-    font-family: "Lato", sans-serif;
+    font-family: "Maven Pro", sans-serif;
 }
 
 p:not(.p-form) {
@@ -99,6 +99,10 @@ a:hover {
     --bs-table-bg: #030068;
     color: #fff;
     border-color: #030068;
+}
+
+.calender {
+    background-color: #fff;
 }
 
 /* Buttons */

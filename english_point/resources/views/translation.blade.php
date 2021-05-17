@@ -2,12 +2,18 @@
 
 @section('content')
 
-<div id="translation" class="container-fluid p-0 m-0">
+<div id="translation" class="container-fluid services-bg p-0 m-0">
+    <div class="container py-6">
+        <h1 class="text-center mb-4">Traducción</h1>
+    </div>
+</div>
+
+<div class="container-fluid p-0 m-0">
     <input type="hidden" id="contact-form-url" data-url="{{route('contact-form-traduccion')}}" />
     <div class="container py-5">
         <div class="row">
-            <div class="col-md-6 offset-md-3">
-                <h2 class="text-center mb-4">Traducción</h2>
+            <div class="col-md-6">
+                <h2 class="text-center mb-4">Formulario</h2>
                 <div id="contact-form">
                     <label for="name">Nombre:</label><br>
                     <input type="text" id="name" name="name"><br>
@@ -28,6 +34,9 @@
                     </select><br>
                     <input type="submit" id="send" class="btn-dark-blue-bg text-white mt-2" name="send" value="Enviar">
                 </div>
+            </div>
+            <div class="col-md-6">
+                <img class="img-fluid" src="{{url('/img/woman-service.jpg')}}" alt="Service">
             </div>
         </div>
     </div>
