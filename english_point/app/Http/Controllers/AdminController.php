@@ -41,4 +41,16 @@ class AdminController extends Controller
         }
         return redirect('/sin-autorizacion');
     }
+
+    public function loadTransactions(Request $request){
+        if($request){
+            $transactionModel = new Transaction();
+            $transactions = $transactionModel->loadTransactions($request);
+            if($transactions){
+                return $transactions;
+            }
+            return json_encode(array("status"=>400));
+        }
+        return json_encode(array("status"=>500));
+    }
 }

@@ -34,14 +34,15 @@ Route::post('register-student', 'HomeController@registerStudent')->name('registe
 Route::get('/admin', 'AdminController@index')->name('dashboard');
 Route::get('/admin/dashboard2', 'AdminController@index2')->name('dashboard2');
 Route::get('/admin/transacciones', 'AdminController@transactions')->name('transactions');
+Route::get('/admin/load-transacciones', 'AdminController@loadTransactions')->name('loadTransactions');
 // Courses
 Route::get('/admin/cursos', 'CourseController@courses')->name('listCourses');
 Route::get('/admin/coursesByPattern', 'CourseController@coursesByPattern')->name('admin.coursesByPattern');
 Route::put('/admin/activeCourse', 'CourseController@activeCourse')->name('admin.activeCourse');
 Route::put('/admin/deactiveCourse', 'CourseController@deactiveCourse')->name('admin.deactiveCourse');
 // Students
-Route::get('/admin/studentsByPattern', 'CourseController@studentsByPattern')->name('admin.studentsByPattern');
 Route::get('/admin/estudiantes-por-curso', 'CourseController@studentsByCourse')->name('studentsByCourse');
+Route::get('/admin/studentsByPattern', 'CourseController@studentsByPattern')->name('admin.studentsByPattern');
 
 //Student pages
 Route::get('/estudiante', 'StudentController@index')->name('dashboardStudent');

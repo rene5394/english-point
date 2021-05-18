@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Models\Course;
+use App\Models\UserCourse;
 use App\Models\Modality;
 use App\Models\Level;
 
@@ -78,16 +79,13 @@ class CourseController extends Controller
     }
 
     public function studentsByPattern(Request $request){
-        $courseModel = new Course();
+        $userCourseModel = new UserCourse();
         if($request->pattern === 'Name'){
-            $courses = $courseModel->getStudentsByModality($request->value);
+            $students = $userCourseModel->getStudentsByName($request->value);
         }
-        if($request->pattern === 'Modality'){
-            $courses = $courseModel->getStudentsByModality($request->value);
+        if($request->pattern === 'Course'){
+            $students = $userCourseModel->getStudentsByCourse($request->value);
         }
-        if($request->pattern === 'Level'){
-            $courses = $courseModel->getStudentsByLevel($request->value);
-        }
-        return $courses;
+        return $students;
     }
 }

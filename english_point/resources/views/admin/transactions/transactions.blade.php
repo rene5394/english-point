@@ -5,6 +5,7 @@
         <input type="hidden" id="coursesByPattern" data-url="{{route('admin.coursesByPattern')}}" />
         <input type="hidden" id="activeCourse" data-url="{{route('admin.activeCourse')}}" />
         <input type="hidden" id="deactiveCourse" data-url="{{route('admin.deactiveCourse')}}" />
+        <input type="hidden" id="loadTransactions" data-url="{{route('loadTransactions')}}" />
         <div class="row row-cols-3 align-items-stretch">
             <div class="col-md-6 mb-4">
                 <h2 class="w-100 mb-3 mt-2">Filtrar Transacciones</h2>
@@ -12,19 +13,21 @@
                     <div class="card-header row mx-0 py-4">
                         <select id="selectModality" class="select-patterns form-control mb-3">
                             <option value="" disabled selected>Seleccionar modalidad</option>
+                            <option value="">Todas las modalidades</option>
                             @foreach($modalities as $modality)
                             <option value="{{$modality->id}}">{{$modality->modality}}</option>
                             @endforeach
                         </select>
                         <select id="selectLevel" class="select-patterns form-control mb-3">
                             <option value="" disabled selected>Seleccionar nivel</option>
+                            <option value="">Todos los niveles</option>
                             @foreach($levels as $level)
                             <option value="{{$level->id}}">{{$level->level}}</option>
                             @endforeach
                         </select>
                         <input type="text" id="date1" class="datepicker form-control mb-3" placeholder="Fecha de inicio" />
                         <input type="text" id="date2" class="datepicker form-control mb-3" placeholder="Fecha de fin"/>
-                        <button id="loadCourses" data-load="" class="btn btn-success ml-md-2 mt-2 mt-md-0">Cargar Transacciones</button>
+                        <button id="loadTransactionsBtn" data-load="" class="btn btn-success ml-md-2 mt-2 mt-md-0">Cargar Transacciones</button>
                     </div>
                 </div>
             </div>
@@ -41,7 +44,7 @@
                             <th>Fecha de pago</th>
                         </tr>
                     </thead>
-                    <tbody id="table-courses">
+                    <tbody id="table-transactions">
                     @foreach($transactions as $transaction)
                         <tr>
                             <td>{{$transaction->name}}</td>

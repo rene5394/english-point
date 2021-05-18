@@ -50,4 +50,40 @@ class UserCourse extends Model
         }
         
     }
+
+    public function getStudentsByName($name){
+        DB::beginTransaction();
+            try {
+                $students = DB::table('users')
+                    ->where('name', 'like' , $name . '%')
+                    ->select('name', 'email', 'phone', 
+                            DB::raw('DATE_FORMAT(created_at, "%M %d %Y %h:%i %p")as created_at')
+                            )
+                    ->get();
+                DB::commit();
+                return $students->toArray();
+            }catch (\Exception $e) {
+                DB::rollBack();
+                return false;
+            }
+    }
+
+    public function getStudentsByCourse($courseid){
+        DB::beginTransaction();
+            try {
+                $students = DB::table('users')
+                    ->join('users_courses', 'users_courses.user_id', '=', 'users.id')
+                    ->join('courses', 'courses.id', '=', 'users_courses.course_id')
+                    ->where('courses.id', '=' , $courseid)
+                    ->select('name', 'email', 'phone',
+                            DB::raw('DATE_FORMAT(users.created_at, "%M %d %Y %h:%i %p")as created_at')
+                            )
+                    ->get();
+                DB::commit();
+                return $students->toArray();
+            }catch (\Exception $e) {
+                DB::rollBack();
+                return false;
+            }
+    }
 }

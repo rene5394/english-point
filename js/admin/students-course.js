@@ -91,19 +91,61 @@ if(document.getElementById("page-students-courses")){
             if(patternToLoad === 'Name'){
                 patternValue = validateName();
             }else if(patternToLoad === 'Modality'){
-                patternValue = validateModality();
+                patternToLoad = 'Course';
+                patternValue = validateModalityCourse();
             }else if(patternToLoad === 'Level'){
-                patternValue = validateLevel();
+                patternToLoad = 'Course';
+                patternValue = validateLevelCourse();
             }
             // Check if data is validated
             if(patternValue !== ""){
                 let url = document.getElementById('studentsByPattern').getAttribute("data-url");
                 // Adding params
                 url += `?pattern=${patternToLoad}&value=${patternValue}`;
-                console.log('url', url);
+                fetch(url, {
+                    headers: {
+                        'Content-Type': 'application/json',
+                        "Accept": "application/json",
+                    },
+                    method: 'GET',
+                    credentials: "same-origin",
+                    mode: 'cors',
+                    cache: 'default',
+                }).then(function(response){
+                    if(response.ok){
+                        response.json().then(students => {
+                            let tableStudents = document.getElementById('table-students');
+                            tableStudents.innerHTML = '';
+                            if(students[0]){
+                                students.forEach(student => {
+                                    let tr = document.createElement('tr');
+                                    let td1 = document.createElement('td');
+                                    td1.textContent = student.name;
+                                    let td2 = document.createElement('td');
+                                    td2.textContent = student.email;
+                                    let td3 = document.createElement('td');
+                                    td3.textContent = student.phone;
+                                    let td4 = document.createElement('td');
+                                    td4.textContent = student.created_at;
+                                    // Apppends
+                                    tableStudents.appendChild(tr);
+                                    tr.appendChild(td1);
+                                    td1.after(td2, td3, td4);
+                                });
+                            }else{
+                                let tr = document.createElement('tr');
+                                let td = document.createElement('td');
+                                td.setAttribute('colspan', 4);
+                                td.textContent = 'No hay usuarios para esta búsqueda';
+                                tableStudents.appendChild(tr);
+                                tr.appendChild(td);
+                            }
+                        });
+                    }
+                });
             }else{
                 swal({
-                    title: "Selecciona un parametro!",
+                    title: "Selecciona todos los parametro!",
                     icon: "info",
                     button: "Cerrar",
                   });
@@ -157,20 +199,20 @@ function validateName(){
     return "";
 }
 
-function validateModality(){
+function validateModalityCourse(){
     let modality = document.getElementById('selectModality');
-    let course = document.getElementById();
-    if(modality.value !== ""){
-        return modality.value;
+    let course = document.getElementById('selectCourse');
+    if(modality.value !== "" && course.value !== ""){
+        return course.value;
     }
     return "";
 }
 
-function validateLevel(){
+function validateLevelCourse(){
     let level = document.getElementById('selectLevel');
-    let course = document.getElementById();
-    if(level.value !== ""){
-        return level.value;
+    let course = document.getElementById('selectCourse');
+    if(level.value !== "" && course.value !== ""){
+        return course.value;
     }
     return "";
 }
