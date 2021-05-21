@@ -130,6 +130,7 @@
 
         <script type="text/javascript" src="{{url('/js/admin/datepicker.js')}}"></script>
         <script type="text/javascript" src="{{url('/js/admin/courses.js')}}"></script>
+        <script type="text/javascript" src="{{url('/js/admin/create-user.js')}}"></script>
         <script type="text/javascript" src="{{url('/js/admin/students-course.js')}}"></script>
         <script type="text/javascript" src="{{url('/js/admin/transactions.js')}}"></script>
         

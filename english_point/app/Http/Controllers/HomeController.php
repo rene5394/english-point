@@ -68,8 +68,8 @@ class HomeController extends Controller
     // Contact form
     public function contactForm(Request $request){
         if($request->name != '' && $request->email != '' && $request->phone != '' && $request->message != ''){
-            $to = 'rene.uassistme@gmail.com';
-            $cc = 'rene_edgardo_2@hotmail.com';
+            $to = env("MAIL_TO");
+            $cc = env("MAIL_CC");
             \Mail::send('mail.contactForm',
             array(
                 'name' => $request->name,
@@ -77,8 +77,30 @@ class HomeController extends Controller
                 'phone' => $request->phone,
                 'emailMessage' => $request->message
             ), function($messageInner) use($to, $cc){
-                $messageInner->from(Array("app@uassistme.com"=>"English Point"));
+                $messageInner->from(Array(env("MAIL_USERNAME")=>"English Point"));
                 $messageInner->to($to)->cc($cc)->subject('Formulario de Contacto');
+            });
+            return json_encode(array("status"=>200));
+        }
+        return json_encode(array("status"=>500));
+    }
+
+    // Contact form Cursos
+    public function contactFormCursos(Request $request){
+        if($request->name != '' && $request->email != '' && $request->phone != '' && $request->notification != '' && $request->level != '' && $request->modality != ''){
+            $to = env("MAIL_TO");
+            $cc = env("MAIL_CC");
+            \Mail::send('mail.contactFormCursos',
+            array(
+                'name' => $request->name,
+                'email' => $request->email,
+                'phone' => $request->phone,
+                'notification' => $request->notification,
+                'level' => $request->level,
+                'modality' => $request->modality,
+            ), function($messageInner) use($to, $cc){
+                $messageInner->from(Array(env("MAIL_USERNAME")=>"English Point"));
+                $messageInner->to($to)->cc($cc)->subject('Formulario de Cursos Grupales');
             });
             return json_encode(array("status"=>200));
         }

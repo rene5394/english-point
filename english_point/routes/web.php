@@ -17,6 +17,7 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', 'HomeController@index')->name('home');
 Route::get('/sin-autorizacion', 'HomeController@noAuth')->name('no-auth');
 Route::post('/contact-form', 'HomeController@contactForm')->name('contact-form');
+Route::post('/contact-form-cursos', 'HomeController@contactFormCursos')->name('contact-form-cursos');
 Route::post('/contact-form-refuerzo', 'HomeController@contactFormRefuerzo')->name('contact-form-refuerzo');
 Route::post('/contact-form-traduccion', 'HomeController@contactFormTraduccion')->name('contact-form-traduccion');
 Route::post('/contact-form-interpretacion', 'HomeController@contactFormInterpretacion')->name('contact-form-interpretacion');
