@@ -53,22 +53,22 @@
                 <div class="col-md-3">
                     <img class="img-fluid img-max-width-150 mb-3" src="{{url('/img/cursos-grupales.png')}}"/>
                     <h3 class="text-center mb-3">Cursos grupales</h3>
-                    <a class="btn btn-dark-blue-bg mx-auto d-table" href="{{route('courses')}}" role="button">Ver cursos</a>
+                    <a class="btn btn-dark-blue-bg mx-auto d-table" href="{{route('courses')}}" role="button">Ver opciones</a>
                 </div>
                 <div class="col-md-3 mt-5 mt-md-0">
                     <img class="img-fluid img-max-width-150 mb-3" src="{{url('/img/refuerzo.png')}}"/>
                     <h3 class="text-center mb-3">Refuerzo</h3>
-                    <a class="btn btn-dark-blue-bg mx-auto d-table" href="{{route('reinforcement')}}" role="button">Ver opciones</a>
+                    <a class="btn btn-dark-blue-bg mx-auto d-table" href="{{route('reinforcement')}}" role="button">Contáctanos</a>
                 </div>
                 <div class="col-md-3 mt-5 mt-md-0">
                     <img class="img-fluid img-max-width-150 mb-3" src="{{url('/img/traduccion.png')}}"/>
                     <h3 class="text-center mb-3">Traducción</h3>
-                    <a class="btn btn-dark-blue-bg mx-auto d-table" href="{{route('translation')}}" role="button">Más información</a>
+                    <a class="btn btn-dark-blue-bg mx-auto d-table" href="{{route('translation')}}" role="button">Contáctanos</a>
                 </div>
                 <div class="col-md-3 mt-5 mt-md-0">
                     <img class="img-fluid img-max-width-150 mb-3" src="{{url('/img/interpretacion.png')}}"/>
                     <h5 class="text-center mb-3">Interpretación</h5>
-                    <a class="btn btn-dark-blue-bg mx-auto d-table" href="{{route('interpretation')}}" role="button">Más información</a>
+                    <a class="btn btn-dark-blue-bg mx-auto d-table" href="{{route('interpretation')}}" role="button">Contáctanos</a>
                 </div>
             </div>
         </div>

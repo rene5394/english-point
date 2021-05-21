@@ -8,6 +8,22 @@
         </div>
     </div>
 
+    <div class="container-fluid dark-blue-bg p-0 m-0">
+        <div class="container py-4">
+            <div class="row">
+                <div class="col-md-4">
+                    <h3 class="text-center text-white">Paso 1</h3>
+                </div>
+                <div class="col-md-4">
+                    <h3 class="text-center text-white">Paso 2</h3>
+                </div>
+                <div class="col-md-4">
+                    <h3 class="text-center text-white">Paso 3</h3>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <div class="container my-5">
         <div class="row mb-3 text-center">
             <div class="offset-lg-2 col-lg-4">

@@ -47,7 +47,7 @@
             </div>
 
             <div class="col-12">
-              <label for="level" class="form-label">Seleccionar Nivel</label>
+              <label for="level" class="form-label">Nivel de inglés</label>
               @foreach($levels as $level)
               <div class="form-check">
                 <input class="form-check-input" type="radio" name="level" id="level{{$level->id}}" value="{{$level->id}}" required>
@@ -59,7 +59,7 @@
             </div>
 
             <div class="col-12">
-              <label for="level" class="form-label">Seleccionar Modalidad</label>
+              <label for="level" class="form-label">Modalidad</label>
               @foreach($modalities as $modality)
               <div class="form-check">
                 <input class="form-check-input" type="radio" name="modality" id="modality{{$modality->id}}" value="{{$modality->id}}" required>
