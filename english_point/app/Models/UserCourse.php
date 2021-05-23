@@ -11,6 +11,7 @@ class UserCourse extends Model
 {
     use HasFactory;
 
+    // selectOrCreateUserCourse check if UserCouse exist to use it or create it
     public function selectOrCreateUserCourse($courseid, $userid){
         // Check if users_courses exist
         DB::beginTransaction();
@@ -51,6 +52,7 @@ class UserCourse extends Model
         
     }
 
+    // getStudentsByName returns users filtered by name
     public function getStudentsByName($name){
         DB::beginTransaction();
             try {
@@ -68,6 +70,7 @@ class UserCourse extends Model
             }
     }
 
+    // getStudentsByCourse returns students by course
     public function getStudentsByCourse($courseid){
         DB::beginTransaction();
             try {
@@ -85,5 +88,20 @@ class UserCourse extends Model
                 DB::rollBack();
                 return false;
             }
+    }
+
+    // getCourseOfStudent returns the course id to which the user is subscribed    
+    public function getCourseOfStudent($userid){
+        DB::beginTransaction();
+        try {
+            $students = DB::table('users_courses')
+                ->where('users_courses.user_id', '=' , $userid)
+                ->first();
+            DB::commit();
+            return $students->course_id;
+        }catch (\Exception $e) {
+            DB::rollBack();
+            return false;
+        }
     }
 }

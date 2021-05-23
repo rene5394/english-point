@@ -10,6 +10,7 @@ use App\Models\UserCourse;
 use App\Models\Transaction;
 use App\Models\NotificationPreference;
 use App\Http\Controllers\WompiController;
+use Carbon\Carbon;
 
 class StudentController extends Controller
 {
@@ -17,6 +18,7 @@ class StudentController extends Controller
         $this->middleware('auth');
     }
 
+    // index loads the profile for students
     public function index(){
         $userModel = new User();
         $userData = $userModel->getUserData(Auth::user()->id);
@@ -28,14 +30,32 @@ class StudentController extends Controller
         ]);
     }
 
+    // monthlyPayment loads the monthly payment page for courses
+    public function monthlyPayment(){
+        $userCourseModel = new UserCourse();
+        $courseid = $userCourseModel->getCourseOfStudent(Auth::user()->id);
+        $view = $this->paySubscriptionPage($courseid);
+        // Return view generated in paySubscriptionPage funciton
+        return $view;
+    }
+
+    // myTransactions loads the transactions page
     public function myTransactions(){
         $transactionModel = new Transaction();
         $transactions = $transactionModel->getUserTransactions(Auth::user()->id);
+        // get Last Payment
+        $lastPayment = $transactions[0]->created;
+        $lastPayment = new Carbon($lastPayment);
+        // set Next Payment
+        $nextPayment = $lastPayment->add(1, 'month');
+        $nextPayment = $nextPayment->isoFormat('YYYY-MM-DD');
         return view('student.my-transactions',[
-            'transactions'=> $transactions
+            'transactions'=> $transactions,
+            'nextPayment'=> $nextPayment
         ]);
     }
 
+    // editStudentInfo make changes on student's profile
     public function editStudentInfo(Request $request){
         if($request->name && $request->email && $request->address && $request->phone && $request->preference){
             $userModel = new User();
@@ -55,6 +75,7 @@ class StudentController extends Controller
         }
     }
 
+    // paySubscriptionPage loads course payment page
     public function paySubscriptionPage($courseid){
         $courseModel = new Course();
         $course = $courseModel->getCourse($courseid);
@@ -63,6 +84,7 @@ class StudentController extends Controller
         ]);
     }
 
+    // paySubscription make the transaction for Wompi Controller
     public function paySubscription(Request $request){
         if($request->courseid && $request->name && $request->number && $request->cvc){
             if($request->expmonth && $request->expyear){

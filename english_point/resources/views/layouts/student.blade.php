@@ -34,6 +34,9 @@
                             <a class="nav-link" href="{{route('dashboardStudent')}}">Mi Perfil</a>
                         </li>
                         <li class="nav-item dropdown">
+                            <a class="nav-link" href="{{route('monthlyPayment')}}">Pagar mi mensualidad</a>
+                        </li>
+                        <li class="nav-item dropdown">
                             <a class="nav-link" href="{{route('myTransactions')}}">Mis transacciones</a>
                         </li>
                         <li class="nav-item">
@@ -65,6 +68,7 @@
                         <div class="collapse" id="courses-collapse" style="">
                             <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
                             <li><a href="{{route('dashboardStudent')}}" class="link-dark rounded text-white">Mi perfil</a></li>
+                            <li><a href="{{route('monthlyPayment')}}" class="link-dark rounded text-white">Pagar mi mensualidad</a></li>
                             <li><a href="{{route('myTransactions')}}" class="link-dark rounded text-white">Mis transacciones</a></li>
                             </ul>
                         </div>

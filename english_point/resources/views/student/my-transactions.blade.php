@@ -17,7 +17,7 @@
                 <tbody id="table-courses">
                 @foreach($transactions as $transaction)
                     <tr>
-                        <td>{{$transaction->modality}} {{$transaction->level}}</td>
+                        <td>{{$transaction->modality}} {{$transaction->level}} {{$transaction->schedule}}</td>
                         <td>{{$transaction->wompi_id_transaction}}</td>
                         <td>${{$transaction->amount}}</td>
                         <td>{{$transaction->created_at}}</td>
@@ -25,6 +25,7 @@
                 @endforeach
                 </tbody>
             </table>
+            <p><strong>Siguiente Pago:</strong> {{$nextPayment}}</p>
         </div>
     </div>
 </div>

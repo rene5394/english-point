@@ -48,6 +48,7 @@ Route::get('/admin/studentsByPattern', 'CourseController@studentsByPattern')->na
 //Student pages
 Route::get('/estudiante', 'StudentController@index')->name('dashboardStudent');
 Route::get('/estudiante/mis-transacciones', 'StudentController@myTransactions')->name('myTransactions');
+Route::get('/estudiante/pagar-mensualidad', 'StudentController@monthlyPayment')->name('monthlyPayment');
 Route::get('/estudiante/pagar-suscripcion/{course}', 'StudentController@paySubscriptionPage')->name('paySubscriptionPage');
 Route::post('/estudiante/pagar-suscripcion', 'StudentController@paySubscription')->name('paySubscription');
 Route::put('/estudiante/editar-informacion-estudiante', 'StudentController@editStudentInfo')->name('estudianteEditarInformacion');

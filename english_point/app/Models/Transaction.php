@@ -56,8 +56,11 @@ class Transaction extends Model
                 ->join('courses', 'courses.id', '=', 'users_courses.course_id')
                 ->join('course_levels', 'course_levels.id', '=', 'courses.course_level_id')
                 ->join('course_modalities', 'course_modalities.id', '=', 'courses.course_modality_id')
+                ->join('course_schedules', 'course_schedules.id', '=', 'courses.course_schedule_id')
                 ->where('users.id', '=', $userid)
-                ->select('modality', 'level', 'wompi_id_transaction', 'amount',
+                ->orderBy('transactions.created_at', 'desc')
+                ->select('modality', 'level', 'schedule', 'wompi_id_transaction', 'amount',
+                        'transactions.created_at as created', 
                         DB::raw('DATE_FORMAT(transactions.created_at, "%M %d %Y %h:%i %p")as created_at')
                 )
                 ->get();
