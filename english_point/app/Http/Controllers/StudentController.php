@@ -43,13 +43,13 @@ class StudentController extends Controller
     public function myTransactions(){
         $transactionModel = new Transaction();
         $transactions = $transactionModel->getUserTransactions(Auth::user()->id);
-        // get Last Payment
-        $lastPayment = $transactions[0]->created;
-        $lastPayment = new Carbon($lastPayment);
+        // get First Payment
+        $numTransactions = count($transactions);
+        $firstPayment = $transactions[$numTransactions - 1]->created;
+        $firstPayment = new Carbon($firstPayment);
         // set Next Payment
-        $nextPayment = $lastPayment->add(1, 'month');
-        //$nextPayment = $nextPayment->isoFormat('YYYY-MM-DD');
-        $nextPayment = $nextPayment->toFormattedDateString(); 
+        $nextPayment = $firstPayment->add($numTransactions, 'month');
+        $nextPayment = $nextPayment->toFormattedDateString();
         return view('student.my-transactions',[
             'transactions'=> $transactions,
             'nextPayment'=> $nextPayment
