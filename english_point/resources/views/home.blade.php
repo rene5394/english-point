@@ -29,11 +29,6 @@
         </button>
     </div>
 
-    <div class="d-flex align-items-center">
-        <strong>Loading...</strong>
-        <div class="spinner-border ms-auto" role="status" aria-hidden="true"></div>
-    </div>
-
     <span id="acerca-de-nosotros" class="anchor-links"></span>
     <div class="container py-5">
         <div class="row">

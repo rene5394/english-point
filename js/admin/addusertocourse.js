@@ -1,4 +1,4 @@
-if(document.getElementById("courses")){
+if(document.getElementById("addusertocourse")){
     let sendBtn = document.getElementById('send');
     sendBtn.addEventListener('click', () => {
         let name = document.getElementById('name').value;

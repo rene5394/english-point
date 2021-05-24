@@ -1,7 +1,7 @@
 @extends('layouts.admin')
 
 @section('content')
-<div id="page-groupal-courses" class="container">
+<div id="addusertocourse" class="container">
   <main>
     <div class="row pt-5 text-center">
         <div class="col-md-12 col-lg-8 offset-lg-2">
