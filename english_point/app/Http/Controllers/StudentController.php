@@ -48,7 +48,8 @@ class StudentController extends Controller
         $lastPayment = new Carbon($lastPayment);
         // set Next Payment
         $nextPayment = $lastPayment->add(1, 'month');
-        $nextPayment = $nextPayment->isoFormat('YYYY-MM-DD');
+        //$nextPayment = $nextPayment->isoFormat('YYYY-MM-DD');
+        $nextPayment = $nextPayment->toFormattedDateString(); 
         return view('student.my-transactions',[
             'transactions'=> $transactions,
             'nextPayment'=> $nextPayment

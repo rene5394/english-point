@@ -32,21 +32,6 @@ class HomeController extends Controller
         return view('interpretation');
     }
 
-    // Load all the data in the subscription form
-    public function inscripcionCursos(){
-        $levelModel = new Level();
-        $levels = $levelModel->getLevels();
-        $modalityModel = new Modality();
-        $modalities = $modalityModel->getModalities();
-        $preferenceModel = new NotificationPreference();
-        $preferences = $preferenceModel->getNotificationPreferences();
-        return view('subscribe.courses',[
-            "levels"=>$levels,
-            "modalities"=>$modalities,
-            "preferences"=>$preferences
-        ]);
-    }
-
     // Store the data comes from the subcription form
     public function registerStudent(Request $request){
         if($request->fullname && $request->email && $request->address && $request->phone){

@@ -42,6 +42,7 @@ Route::get('/admin/coursesByPattern', 'CourseController@coursesByPattern')->name
 Route::put('/admin/activeCourse', 'CourseController@activeCourse')->name('admin.activeCourse');
 Route::put('/admin/deactiveCourse', 'CourseController@deactiveCourse')->name('admin.deactiveCourse');
 // Students
+Route::get('/admin/agregar-estudiante-a-curso', 'CourseController@addStudentToCourse')->name('addStudentToCourse');
 Route::get('/admin/estudiantes-por-curso', 'CourseController@studentsByCourse')->name('studentsByCourse');
 Route::get('/admin/studentsByPattern', 'CourseController@studentsByPattern')->name('admin.studentsByPattern');
 

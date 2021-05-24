@@ -1,4 +1,4 @@
-@extends('layouts.website')
+@extends('layouts.admin')
 
 @section('content')
 <div id="page-groupal-courses" class="container">

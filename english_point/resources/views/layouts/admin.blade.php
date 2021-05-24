@@ -35,6 +35,9 @@
                             <a class="nav-link" href="{{route('listCourses')}}">Lista de cursos</a>
                         </li>
                         <li class="nav-item dropdown">
+                            <a class="nav-link" href="{{route('addStudentToCourse')}}">Inscribir estudiante</a>
+                        </li>
+                        <li class="nav-item dropdown">
                             <a class="nav-link" href="{{route('studentsByCourse')}}">Estudiantes por curso</a>
                         </li>
                         <li class="nav-item d-none">
@@ -81,6 +84,7 @@
                         <div class="collapse" id="courses-collapse" style="">
                             <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
                             <li><a href="{{route('listCourses')}}" class="link-dark rounded text-white">Lista de cursos</a></li>
+                            <li><a href="{{route('addStudentToCourse')}}" class="link-dark rounded text-white">Inscribir estudiante</a></li>
                             <li><a href="{{route('studentsByCourse')}}" class="link-dark rounded text-white">Estudiantes por curso</a></li>
                             </ul>
                         </div>

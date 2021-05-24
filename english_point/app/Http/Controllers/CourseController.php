@@ -8,6 +8,7 @@ use App\Models\Course;
 use App\Models\UserCourse;
 use App\Models\Modality;
 use App\Models\Level;
+use App\Models\NotificationPreference;
 
 class CourseController extends Controller
 {
@@ -30,6 +31,21 @@ class CourseController extends Controller
             ]);
         }
         return redirect('/sin-autorizacion');
+    }
+
+    // Load all the data in the subscription form
+    public function addStudentToCourse(){
+        $levelModel = new Level();
+        $levels = $levelModel->getLevels();
+        $modalityModel = new Modality();
+        $modalities = $modalityModel->getModalities();
+        $preferenceModel = new NotificationPreference();
+        $preferences = $preferenceModel->getNotificationPreferences();
+        return view('admin.addUserToCourse',[
+            "levels"=>$levels,
+            "modalities"=>$modalities,
+            "preferences"=>$preferences
+        ]);
     }
 
     public function coursesByPattern(Request $request){
