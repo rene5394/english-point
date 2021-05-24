@@ -1,11 +1,11 @@
 @extends('layouts.admin')
 
 @section('content')
-<div id="addusertocourse" class="container">
+<div id="adduser" class="container">
   <main>
     <div class="row pt-5 text-center">
         <div class="col-md-12 col-lg-8 offset-lg-2">
-            <h2>Formulario de registro</h2>
+            <h2>Formulario agregar usuario</h2>
             <p class="lead d-none">Below is an example form built entirely with Bootstrap’s form controls. Each required form group has a validation state that can be triggered by attempting to submit the form.</p>
         </div>
     </div>
@@ -44,58 +44,6 @@
             <div class="col-12">
               <label for="phone" class="form-label">Número de teléfono</label>
               <input type="text" class="form-control" id="phone" name="phone" required="">
-            </div>
-
-            <div class="col-12">
-              <label for="level" class="form-label">Nivel de inglés</label>
-              @foreach($levels as $level)
-              <div class="form-check">
-                <input class="form-check-input" type="radio" name="level" id="level{{$level->id}}" value="{{$level->id}}" required>
-                <label class="form-check-label" for="level{{$level->id}}">
-                  {{$level->level}}
-                </label>
-              </div>
-              @endforeach
-            </div>
-
-            <div class="col-12">
-              <label for="level" class="form-label">Modalidad</label>
-              @foreach($modalities as $modality)
-              <div class="form-check">
-                <input class="form-check-input" type="radio" name="modality" id="modality{{$modality->id}}" value="{{$modality->id}}" required>
-                <label class="form-check-label" for="modality{{$modality->id}}">
-                  {{$modality->modality}}
-                </label>
-              </div>
-              @endforeach
-            </div>
-
-            <div class="col-12">
-              <label for="size" class="form-label">Talla de camiseta</label>
-              <div class="form-check">
-                <input class="form-check-input" type="radio" name="size" id="size1" value="S" required>
-                <label class="form-check-label" for="size1">
-                  S
-                </label>
-              </div>
-              <div class="form-check">
-                <input class="form-check-input" type="radio" name="size" id="size2" value="M" required>
-                <label class="form-check-label" for="size2">
-                  M
-                </label>
-              </div>
-              <div class="form-check">
-                <input class="form-check-input" type="radio" name="size" id="size3" value="L" required>
-                <label class="form-check-label" for="size3">
-                  L
-                </label>
-              </div>
-              <div class="form-check">
-                <input class="form-check-input" type="radio" name="size" id="size4" value="XL" required>
-                <label class="form-check-label" for="size4">
-                  XL
-                </label>
-              </div>
             </div>
 
             <div class="col-12">

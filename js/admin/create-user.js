@@ -1,4 +1,4 @@
-if(document.getElementById("page-groupal-courses")){
+if(document.getElementById("adduser")){
     let password = document.getElementById('password');
     let password2 = document.getElementById('password2');
     let p_nomatch = document.getElementById('p-nomatch');

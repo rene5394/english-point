@@ -6,7 +6,6 @@ use Illuminate\Http\Request;
 use App\Models\Course;
 use App\Models\Level;
 use App\Models\Modality;
-use App\Models\User;
 use App\Models\NotificationPreference;
 use Mail;
 
@@ -30,19 +29,6 @@ class HomeController extends Controller
 
     public function interpretation(){
         return view('interpretation');
-    }
-
-    // Store the data comes from the subcription form
-    public function registerStudent(Request $request){
-        if($request->fullname && $request->email && $request->address && $request->phone){
-            if($request->level && $request->modality && $request->size && $request->preference){
-                $user = new User();
-                $userCreated = $user->createStudent($request);
-                if($userCreated){
-                    return redirect('/login');
-                }
-            }
-        }
     }
 
     // No authorization page

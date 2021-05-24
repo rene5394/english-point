@@ -35,7 +35,7 @@
                             <a class="nav-link" href="{{route('listCourses')}}">Lista de cursos</a>
                         </li>
                         <li class="nav-item dropdown">
-                            <a class="nav-link" href="{{route('addStudentToCourse')}}">Inscribir estudiante</a>
+                            <a class="nav-link" href="{{route('createUser')}}">Agregar estudiante</a>
                         </li>
                         <li class="nav-item dropdown">
                             <a class="nav-link" href="{{route('studentsByCourse')}}">Estudiantes por curso</a>
@@ -84,7 +84,7 @@
                         <div class="collapse" id="courses-collapse" style="">
                             <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
                             <li><a href="{{route('listCourses')}}" class="link-dark rounded text-white">Lista de cursos</a></li>
-                            <li><a href="{{route('addStudentToCourse')}}" class="link-dark rounded text-white">Inscribir estudiante</a></li>
+                            <li><a href="{{route('createUser')}}" class="link-dark rounded text-white">Agregar estudiante</a></li>
                             <li><a href="{{route('studentsByCourse')}}" class="link-dark rounded text-white">Estudiantes por curso</a></li>
                             </ul>
                         </div>
@@ -134,7 +134,6 @@
 
         <script type="text/javascript" src="{{url('/js/admin/datepicker.js')}}"></script>
         <script type="text/javascript" src="{{url('/js/admin/courses.js')}}"></script>
-        <script type="text/javascript" src="{{url('/js/admin/addusertocourse.js')}}"></script>
         <script type="text/javascript" src="{{url('/js/admin/create-user.js')}}"></script>
         <script type="text/javascript" src="{{url('/js/admin/students-course.js')}}"></script>
         <script type="text/javascript" src="{{url('/js/admin/transactions.js')}}"></script>

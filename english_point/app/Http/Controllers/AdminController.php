@@ -4,10 +4,12 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use App\Models\User;
 use App\Models\Course;
 use App\Models\Transaction;
 use App\Models\Modality;
 use App\Models\Level;
+use App\Models\NotificationPreference;
 
 class AdminController extends Controller
 {
@@ -20,6 +22,31 @@ class AdminController extends Controller
             return view('admin.dashboard');
         }
         return redirect('/sin-autorizacion');
+    }
+
+    public function createUser(){
+        if(Auth::user()->role_id === 1){
+            $preferenceModel = new NotificationPreference();
+            $preferences = $preferenceModel->getNotificationPreferences();
+            return view('admin.createUser',[
+                "preferences"=>$preferences
+            ]);
+        }
+        return redirect('/sin-autorizacion');
+    }
+
+    // Store the data comes from the subcription form
+    public function registerStudent(Request $request){
+        if($request->fullname && $request->email && $request->password && $request->password2){
+            if($request->address && $request->phone && $request->preference){
+                $user = new User();
+                $userCreated = $user->createStudent($request);
+                if($userCreated){
+                    return redirect('/admin/usuario-agregado-exitosamente');
+                }
+            }
+        }
+        return redirect('/admin/usuario-no-agregado');
     }
 
     public function transactions(){

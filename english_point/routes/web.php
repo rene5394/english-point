@@ -29,10 +29,17 @@ Route::get('/interpretacion', 'HomeController@interpretation')->name('interpreta
 // Subscription pages
 Route::get('/inscripcion-cursos', 'HomeController@inscripcionCursos')->name('inscripcionCursos');
 Route::get('/inscripcion-refuerzo', 'HomeController@refuerzo')->name('refuerzo');
-Route::post('register-student', 'HomeController@registerStudent')->name('registerStudent');
 
 //Admin pages
 Route::get('/admin', 'AdminController@index')->name('dashboard');
+Route::get('/admin/agregar-estudiante', 'AdminController@createUser')->name('createUser');
+Route::post('/admin/register-student', 'AdminController@registerStudent')->name('registerStudent');
+Route::get('/admin/usuario-agregado-exitosamente', function () {
+    return view('admin.userAdded');
+});
+Route::get('/admin/usuario-no-agregado', function () {
+    return view('admin.userNotAdded');
+});
 Route::get('/admin/dashboard2', 'AdminController@index2')->name('dashboard2');
 Route::get('/admin/transacciones', 'AdminController@transactions')->name('transactions');
 Route::get('/admin/load-transacciones', 'AdminController@loadTransactions')->name('loadTransactions');
@@ -42,7 +49,6 @@ Route::get('/admin/coursesByPattern', 'CourseController@coursesByPattern')->name
 Route::put('/admin/activeCourse', 'CourseController@activeCourse')->name('admin.activeCourse');
 Route::put('/admin/deactiveCourse', 'CourseController@deactiveCourse')->name('admin.deactiveCourse');
 // Students
-Route::get('/admin/agregar-estudiante-a-curso', 'CourseController@addStudentToCourse')->name('addStudentToCourse');
 Route::get('/admin/estudiantes-por-curso', 'CourseController@studentsByCourse')->name('studentsByCourse');
 Route::get('/admin/studentsByPattern', 'CourseController@studentsByPattern')->name('admin.studentsByPattern');
 
