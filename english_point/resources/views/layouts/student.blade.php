@@ -34,6 +34,9 @@
                             <a class="nav-link" href="{{route('dashboardStudent')}}">Mi Perfil</a>
                         </li>
                         <li class="nav-item dropdown">
+                            <a href="{{route('changePasswordPage')}}" class="link-dark rounded text-white">Cambiar contraseña</a>
+                        </li>
+                        <li class="nav-item dropdown">
                             <a class="nav-link" href="{{route('monthlyPayment')}}">Pagar mi mensualidad</a>
                         </li>
                         <li class="nav-item dropdown">
@@ -68,6 +71,7 @@
                         <div class="collapse" id="courses-collapse" style="">
                             <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
                             <li><a href="{{route('dashboardStudent')}}" class="link-dark rounded text-white">Mi perfil</a></li>
+                            <li><a href="{{route('changePasswordPage')}}" class="link-dark rounded text-white">Cambiar contraseña</a></li>
                             <li><a href="{{route('monthlyPayment')}}" class="link-dark rounded text-white">Pagar mi mensualidad</a></li>
                             <li><a href="{{route('myTransactions')}}" class="link-dark rounded text-white">Mis transacciones</a></li>
                             </ul>
@@ -82,6 +86,7 @@
                     </a>
                     <ul class="dropdown-menu dropdown-menu-dark text-small shadow" aria-labelledby="dropdownUser1">
                         <li><a class="dropdown-item" href="{{route('dashboardStudent')}}">Mi perfil</a></li>
+                        <li><a class="dropdown-item" href="{{route('changePasswordPage')}}">Cambiar contraseña</a></li>
                         <li><hr class="dropdown-divider"></li>
                         <!-- Logout -->
                         <li>
@@ -107,6 +112,7 @@
 
         <script type="text/javascript" src="{{url('/js/admin/courses.js')}}"></script>
         <script type="text/javascript" src="{{url('/js/student/pay-subscription.js')}}"></script>
+        <script type="text/javascript" src="{{url('/js/student/change-password.js')}}"></script>
         <script type="text/javascript" src="{{url('/js/student/dashboard.js')}}"></script>
     </body>
 </html>

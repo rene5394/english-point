@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
 use DB,Auth,Mail;
 use App\Models\User;
 use App\Models\Course;
@@ -28,6 +29,23 @@ class StudentController extends Controller
             'userData'=> $userData,
             'preferences' => $preferences
         ]);
+    }
+
+    public function changePasswordPage(){
+        return view('student.change-password');
+    }
+
+    public function changePassword(Request $request){
+        $userModel = new User();
+        $oldPassHash = $userModel->getPassword(Auth::user()->id);
+        $newpass = Hash::make($request->newpass);
+        if(Hash::check($request->oldpass, $oldPassHash)) {
+            $passChanged = $userModel->changePassword(Auth::user()->id, $newpass);
+            if($passChanged){
+                return json_encode(array("status"=>200));
+            } 
+        }
+        return json_encode(array("status"=>500));
     }
 
     // monthlyPayment loads the monthly payment page for courses

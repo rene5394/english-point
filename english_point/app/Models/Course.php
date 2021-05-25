@@ -131,10 +131,10 @@ class Course extends Model
     }
 
     public function getCoursePrice($courseid){
-                $price = DB::table('courses')
-                    ->where('courses.id', '=', $courseid)
-                    ->select('price')
-                    ->first();
-                return $price;
+        $price = DB::table('courses')
+            ->where('courses.id', '=', $courseid)
+            ->select('price')
+            ->first();
+        return $price;
     }
 }

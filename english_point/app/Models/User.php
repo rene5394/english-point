@@ -67,6 +67,31 @@ class User extends Authenticatable
         }
     }
 
+    public function getPassword($userid){
+        DB::beginTransaction();
+        try {
+            $user = DB::table('users')
+                ->where('id', '=', $userid)
+                ->select('password')
+                ->first();
+            DB::commit();
+            return $user->password;
+        }catch (\Exception $e) {
+            DB::rollBack();
+            return false;
+        }
+    }
+
+    public function changePassword($userid, $pass){
+        $passChanged = DB::table('users')
+              ->where('id', '=', $userid)
+              ->update(['password' => $pass]);
+            if($passChanged === 1){
+                return true;
+            }
+            return false;
+    }
+
     public function getUserData($userid){
         DB::beginTransaction();
         try {

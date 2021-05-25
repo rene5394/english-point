@@ -8,23 +8,7 @@
     </div>
 </div>
 
-<div class="container-fluid dark-blue-bg p-0 m-0">
-    <div class="container py-4">
-        <div class="row">
-            <div class="col-md-4">
-                <h3 class="text-center text-white">Paso 1</h3>
-            </div>
-            <div class="col-md-4">
-                <h3 class="text-center text-white">Paso 2</h3>
-            </div>
-            <div class="col-md-4">
-                <h3 class="text-center text-white">Paso 3</h3>
-            </div>
-        </div>
-    </div>
-</div>
-
-<div class="container my-5">
+<div class="container mt-5 mb-4">
     <div class="row mb-3 text-center">
         <div class="offset-lg-2 col-lg-4">
             <div class="card mb-4 rounded-3 shadow-sm dark-blue-border">
@@ -61,7 +45,7 @@
 
 <div class="container-fluid p-0 m-0">
     <input type="hidden" id="contact-form-url" data-url="{{route('contact-form-cursos')}}" />
-    <div class="container py-5">
+    <div class="container pb-5">
         <div class="row">
             <div class="col-md-6 my-auto">
                 <h2 class="text-center mb-4">Fomulario</h2>
