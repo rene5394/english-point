@@ -40,9 +40,6 @@
                         <li class="nav-item dropdown">
                             <a class="nav-link" href="{{route('studentsByCourse')}}">Estudiantes por curso</a>
                         </li>
-                        <li class="nav-item d-none">
-                            <a class="nav-link" href="#">Generar página de pagos</a>
-                        </li>
                         <li class="nav-item">
                             <a class="nav-link" href="{{route('transactions')}}">Ver transacciones</a>
                         </li>
@@ -95,7 +92,6 @@
                         </button>
                         <div class="collapse" id="reinforcement-collapse">
                             <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
-                            <li><a href="#" class="link-dark rounded text-white">Generar página de pago</a></li>
                             <li><a href="{{route('transactions')}}" class="link-dark rounded text-white">Ver transacciones</a></li>
                             </ul>
                         </div>
@@ -137,6 +133,7 @@
         <script type="text/javascript" src="{{url('/js/admin/create-user.js')}}"></script>
         <script type="text/javascript" src="{{url('/js/admin/students-course.js')}}"></script>
         <script type="text/javascript" src="{{url('/js/admin/transactions.js')}}"></script>
+        <script type="text/javascript" src="{{url('/js/admin/dashboard.js')}}"></script>
         
     </body>
 </html>

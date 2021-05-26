@@ -17,13 +17,36 @@ class AdminController extends Controller
         $this->middleware('auth');
     }
 
+    // index loads the admin dashboard
     public function index(){
         if(Auth::user()->role_id === 1){
-            return view('admin.dashboard');
+            $userModel = new User();
+            $userData = $userModel->getUserData(Auth::user()->id);
+            return view('admin.dashboard',[
+                'userData'=> $userData
+            ]);
         }
         return redirect('/sin-autorizacion');
     }
 
+    // editAdminInfo make changes on admin's profile
+    public function editAdminInfo(Request $request){
+        if($request->name && $request->email){
+            $userModel = new User();
+            // Create credit card object
+            $user = new \stdClass;
+            $user->id = Auth::user()->id;
+            $user->name = $request->name;
+            $user->email = $request->email;
+            $userInfoEdited = $userModel->editAdminData($user);
+            if($userInfoEdited){
+                return json_encode(array("status"=>200, "val"=>$userInfoEdited));  
+            }
+            return json_encode(array("status"=>500, "val"=>$userInfoEdited));
+        }
+    }
+     
+    // createUser loads create user page
     public function createUser(){
         if(Auth::user()->role_id === 1){
             $preferenceModel = new NotificationPreference();
@@ -35,7 +58,7 @@ class AdminController extends Controller
         return redirect('/sin-autorizacion');
     }
 
-    // Store the data comes from the subcription form
+    // registerStudent create student in the database
     public function registerStudent(Request $request){
         if($request->fullname && $request->email && $request->password && $request->password2){
             if($request->address && $request->phone && $request->preference){
@@ -49,7 +72,8 @@ class AdminController extends Controller
         return redirect('/admin/usuario-no-agregado');
     }
 
-    public function transactions(){
+    // getTransactions returns the transactions
+    public function getTransactions(){
         if(Auth::user()->role_id === 1){
             $courseModel = new Course();
             $courses = $courseModel->getCourses();
@@ -69,6 +93,7 @@ class AdminController extends Controller
         return redirect('/sin-autorizacion');
     }
 
+    // loadTransactions get transactions by filter data
     public function loadTransactions(Request $request){
         if($request){
             $transactionModel = new Transaction();

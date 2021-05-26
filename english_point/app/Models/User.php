@@ -43,6 +43,7 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
+    // createStudent creates a new user as student
     public function createStudent($request){
         DB::beginTransaction();
         try {
@@ -67,6 +68,7 @@ class User extends Authenticatable
         }
     }
 
+    // getPassword returns the hash password
     public function getPassword($userid){
         DB::beginTransaction();
         try {
@@ -82,6 +84,7 @@ class User extends Authenticatable
         }
     }
 
+    // changePassword changes the password
     public function changePassword($userid, $pass){
         $passChanged = DB::table('users')
               ->where('id', '=', $userid)
@@ -92,11 +95,12 @@ class User extends Authenticatable
             return false;
     }
 
+    // getUserData returns user's information
     public function getUserData($userid){
         DB::beginTransaction();
         try {
             $userData = DB::table('users')
-                ->join('notification_preferences', 'notification_preferences.id', '=', 'users.notification_preference_id')
+                ->leftjoin('notification_preferences', 'notification_preferences.id', '=', 'users.notification_preference_id')
                 ->where('users.id', '=', $userid)
                 ->select('name', 'email', 'address', 'phone', 'preference', 'notification_preferences.id as noti_id')
                 ->get();
@@ -108,16 +112,29 @@ class User extends Authenticatable
         }
     }
 
-    public function editUserData($user){
+    // editAdminData edits admin's information
+    public function editAdminData($user){
             $userEdited = DB::table('users')
               ->where('id', '=', $user->id)
-              ->update(['name' => $user->name, 'email' => $user->email,
-                'address' => $user->address, 'phone' => $user->phone,
-                'notification_preference_id' => $user->preference
+              ->update(['name' => $user->name, 'email' => $user->email
               ]);
             if($userEdited === 1){
                 return true;
             }
             return false;
     }
+
+    // editStudentData edits student's information
+    public function editStudentData($user){
+        $userEdited = DB::table('users')
+          ->where('id', '=', $user->id)
+          ->update(['name' => $user->name, 'email' => $user->email,
+            'address' => $user->address, 'phone' => $user->phone,
+            'notification_preference_id' => $user->preference
+          ]);
+        if($userEdited === 1){
+            return true;
+        }
+        return false;
+}
 }

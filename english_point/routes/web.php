@@ -32,6 +32,7 @@ Route::get('/inscripcion-refuerzo', 'HomeController@refuerzo')->name('refuerzo')
 
 //Admin pages
 Route::get('/admin', 'AdminController@index')->name('dashboard');
+Route::put('/admin/editar-informacion-admin', 'AdminController@editAdminInfo')->name('adminEditarInformacion');
 Route::get('/admin/agregar-estudiante', 'AdminController@createUser')->name('createUser');
 Route::post('/admin/register-student', 'AdminController@registerStudent')->name('registerStudent');
 Route::get('/admin/usuario-agregado-exitosamente', function () {
@@ -41,7 +42,7 @@ Route::get('/admin/usuario-no-agregado', function () {
     return view('admin.userNotAdded');
 });
 Route::get('/admin/dashboard2', 'AdminController@index2')->name('dashboard2');
-Route::get('/admin/transacciones', 'AdminController@transactions')->name('transactions');
+Route::get('/admin/transacciones', 'AdminController@getTransactions')->name('transactions');
 Route::get('/admin/load-transacciones', 'AdminController@loadTransactions')->name('loadTransactions');
 // Courses
 Route::get('/admin/cursos', 'CourseController@courses')->name('listCourses');

@@ -5,6 +5,7 @@
         <input type="hidden" id="coursesByPattern" data-url="{{route('admin.coursesByPattern')}}" />
         <input type="hidden" id="activeCourse" data-url="{{route('admin.activeCourse')}}" />
         <input type="hidden" id="deactiveCourse" data-url="{{route('admin.deactiveCourse')}}" />
+        <input type="hidden" id="paySubscriptionBaseUrl" data-url="{{url('/estudiante/pagar-suscripcion')}}" />
         <div class="row row-cols-3 align-items-stretch">
             <div class="col-md-6 mb-4">
                 <h2 class="w-100 mb-3 mt-2">Búsqueda de Cursos</h2>
@@ -48,7 +49,6 @@
                             <th></th>
                             <th></th>
                             <th></th>
-                            <th></th>
                         </tr>
                     </thead>
                     <tbody id="table-courses">
@@ -58,15 +58,15 @@
                             <td>{{$course->modality}}</td>
                             <td>{{$course->schedule}}</td>
                             <td>{{$course->price}}</td>
-                            <td><button type="button" class="btn btn-success edit">Editar</button></td>
                             @if($course->active == 1)
                             <td><button type="button" class="btn btn-primary active" disabled>Activar</button></td>
                             <td><button type="button" class="btn btn-danger deactive">Desactivar</button></td>
+                            <td><button type="button" class="btn btn-warning payment-link" data-url="{{url('/estudiante/pagar-suscripcion')}}">URL de pago</button></td>
                             @else
                             <td><button type="button" class="btn btn-primary active">Activar</button></td>
                             <td><button type="button" class="btn btn-danger deactive" disabled>Desactivar</button></td>
+                            <td><button type="button" class="btn btn-warning payment-link" data-url="{{url('/estudiante/pagar-suscripcion')}}" disabled>URL de pago</button></td>
                             @endif
-                            <td><button type="button" class="btn btn-warning payment-link" data-url="{{url('/estudiante/pagar-suscripcion')}}">URL de pago</button></td>
                         </tr>
                     @endforeach
                     </tbody>

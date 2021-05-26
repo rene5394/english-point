@@ -84,9 +84,9 @@
                     </div>
                     <div class="col-md-3">
                         <h4 class="text-center text-white mb-4">Refuerzo</h4>
-                        <p class="text-center"><a class="text-white fw-light" href="#">Básico</a></p>
-                        <p class="text-center"><a class="text-white fw-light" href="#">Intermedio</a></p>
-                        <p class="text-center"><a class="text-white fw-light" href="#">Avanzado</a></p>
+                        <p class="text-center"><a class="text-white fw-light" href="{{route('reinforcement')}}">Básico</a></p>
+                        <p class="text-center"><a class="text-white fw-light" href="{{route('reinforcement')}}">Intermedio</a></p>
+                        <p class="text-center"><a class="text-white fw-light" href="{{route('reinforcement')}}">Avanzado</a></p>
                     </div>
                     <div class="col-md-3">
                         <h4 class="text-center text-white mb-4">Siguenos en</h4>

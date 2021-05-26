@@ -31,10 +31,12 @@ class StudentController extends Controller
         ]);
     }
 
+    // changePasswordPage loads the change password page
     public function changePasswordPage(){
         return view('student.change-password');
     }
 
+    // changePassword changes student password
     public function changePassword(Request $request){
         $userModel = new User();
         $oldPassHash = $userModel->getPassword(Auth::user()->id);
@@ -86,7 +88,7 @@ class StudentController extends Controller
             $user->address = $request->address;
             $user->phone = $request->phone;
             $user->preference = $request->preference;
-            $userInfoEdited = $userModel->editUserData($user);
+            $userInfoEdited = $userModel->editStudentData($user);
             if($userInfoEdited){
                 return json_encode(array("status"=>200, "val"=>$userInfoEdited));  
             }

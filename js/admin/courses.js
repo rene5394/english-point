@@ -62,34 +62,37 @@ if(document.getElementById("page-list-courses")){
                                 td3.textContent = course.schedule;
                                 let td4 = document.createElement('td');
                                 td4.textContent = course.price;
-                                let td5 = document.createElement('td');
-                                    btnEdit = document.createElement('button');
-                                    btnEdit.classList.add('btn', 'btn-success');
-                                    btnEdit.setAttribute('type','button');
-                                    btnEdit.textContent = 'Editar';
-                                    td5.appendChild(btnEdit);
                                 let td6 = document.createElement('td');
                                     let btnActive = document.createElement('button');
-                                    btnActive.classList.add('btn', 'btn-primary');
+                                    btnActive.classList.add('btn', 'btn-primary', 'active');
                                     btnActive.setAttribute('type','button');
                                     btnActive.textContent = 'Activar';
                                     td6.appendChild(btnActive);
                                 let td7 = document.createElement('td');
                                     let btnDeactive = document.createElement('button');
-                                    btnDeactive.classList.add('btn', 'btn-danger');
+                                    btnDeactive.classList.add('btn', 'btn-danger', 'deactive');
                                     btnDeactive.setAttribute('type','button');
                                     btnDeactive.textContent = 'Desactivar';
                                     td7.appendChild(btnDeactive);
+                                let td8 = document.createElement('td');
+                                    let payUrl = document.getElementById('paySubscriptionBaseUrl').getAttribute('data-url');
+                                    let btnUrl = document.createElement('button');
+                                    btnUrl.classList.add('btn', 'btn-warning', 'payment-link');
+                                    btnUrl.setAttribute('type','button');
+                                    btnUrl.setAttribute('data-url', payUrl);
+                                    btnUrl.textContent = 'URL de pago';
+                                    td8.appendChild(btnUrl);    
                                 // Disable active/deactive button    
                                 if(course.active === 1){
                                     btnActive.setAttribute('disabled',true);
                                 }else{
                                     btnDeactive.setAttribute('disabled',true);
+                                    btnUrl.setAttribute('disabled', true);
                                 }
                                 // Append tr/td to table
                                 coursesTbody.appendChild(tr);
                                 tr.appendChild(td1);
-                                td1.after(td2,td3,td4,td5,td6,td7);
+                                td1.after(td2,td3,td4,td6,td7, td8);
                             });
                         })
                     }
@@ -112,9 +115,6 @@ if(document.getElementById("page-list-courses")){
 
     tableTbodyCourses.addEventListener('click',(e)=> {
         e.preventDefault();
-        if(e.target.classList.contains('edit')){
-            
-        }
         if(e.target.classList.contains('active')){
             let courseid = e.target.parentNode.parentNode.getAttribute('data-id');
             activeCourse(courseid);
