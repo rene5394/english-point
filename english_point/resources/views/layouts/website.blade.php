@@ -109,6 +109,7 @@
         <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 
         <script type="text/javascript" src="{{url('/js/website/home.js')}}"></script>
+        <script type="text/javascript" src="{{url('/js/website/courses.js')}}"></script>
         <script type="text/javascript" src="{{url('/js/website/interpretation.js')}}"></script>
         <script type="text/javascript" src="{{url('/js/website/reinforcement.js')}}"></script>
         <script type="text/javascript" src="{{url('/js/website/translation.js')}}"></script>

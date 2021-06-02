@@ -56,6 +56,8 @@
                     <input type="email" id="email" name="email"><br>
                     <label for="phone">Teléfono:</label><br>
                     <input type="tel" id="phone" name="phone">
+                    <label for="address">Dirección:</label><br>
+                    <input type="text" id="address" name="address">
                     <label for="notification">Preferencia comunicación:</label><br>
                     <select id="notification" name="notification">
                         <option value="Whatsapp">Whatsapp</option>

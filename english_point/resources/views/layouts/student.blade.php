@@ -34,7 +34,7 @@
                             <a class="nav-link" href="{{route('dashboardStudent')}}">Mi Perfil</a>
                         </li>
                         <li class="nav-item dropdown">
-                            <a href="{{route('changePasswordPage')}}" class="link-dark rounded text-white">Cambiar contraseña</a>
+                            <a class="link-dark" href="{{route('changePasswordPage')}}">Cambiar contraseña</a>
                         </li>
                         <li class="nav-item dropdown">
                             <a class="nav-link" href="{{route('monthlyPayment')}}">Pagar mi mensualidad</a>

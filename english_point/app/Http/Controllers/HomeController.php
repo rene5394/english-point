@@ -58,7 +58,7 @@ class HomeController extends Controller
 
     // Contact form Cursos
     public function contactFormCursos(Request $request){
-        if($request->name != '' && $request->email != '' && $request->phone != '' && $request->notification != '' && $request->level != '' && $request->modality != ''){
+        if($request->name != '' && $request->email != '' && $request->phone != '' && $request->address != '' && $request->notification != '' && $request->level != '' && $request->modality != ''){
             $to = env("MAIL_TO");
             $cc = env("MAIL_CC");
             \Mail::send('mail.contactFormCursos',
@@ -66,6 +66,7 @@ class HomeController extends Controller
                 'name' => $request->name,
                 'email' => $request->email,
                 'phone' => $request->phone,
+                'address' => $request->address,
                 'notification' => $request->notification,
                 'level' => $request->level,
                 'modality' => $request->modality,

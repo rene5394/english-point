@@ -65,13 +65,13 @@
                 <div class="col-md-3 mt-5 mt-md-0">
                     <img class="img-fluid img-max-width-150 mb-3" src="{{url('/img/traduccion.png')}}"/>
                     <h3 class="text-center mb-3">Traducción</h3>
-                    <p class="text-center">Traduccion de documentos de inglés a espanol y viceversa. Contamos con servicio de traducción para documentos tradicionales y documentos con autenticación legal.</p>
+                    <p class="text-center">Traduccion de documentos de inglés a español y viceversa. Contamos con servicio de traducción para documentos tradicionales y documentos con autenticación legal.</p>
                     <a class="btn btn-dark-blue-bg mx-auto d-table" href="{{route('translation')}}" role="button">Contáctanos</a>
                 </div>
                 <div class="col-md-3 mt-5 mt-md-0">
                     <img class="img-fluid img-max-width-150 mb-3" src="{{url('/img/interpretacion.png')}}"/>
                     <h5 class="text-center mb-3">Interpretación</h5>
-                    <p class="text-center">Servicio ideal para turistas, ejecutivos o religiosos que necesiten de un interprete que traduzca de inglés a español y viceversa en su estancia en el país.</p>
+                    <p class="text-center">Servicio ideal para turistas, ejecutivos o religiosos que necesiten de un interprete de inglés a español y viceversa en su estancia en el país.</p>
                     <a class="btn btn-dark-blue-bg mx-auto d-table" href="{{route('interpretation')}}" role="button">Contáctanos</a>
                 </div>
             </div>

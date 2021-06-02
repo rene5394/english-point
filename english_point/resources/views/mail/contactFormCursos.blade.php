@@ -52,6 +52,7 @@
                   <p><strong>Nombre: </strong>{{$name}}</p>
                   <p><strong>Correo: </strong>{{$email}}</p>
                   <p><strong>Teléfono: </strong>{{$phone}}</p>
+                  <p><strong>Dirección: </strong>{{$address}}</p>
                   <p><strong>Contactar por: </strong>{{$notification}}<p>
                   <p><strong>Nivel de inglés: </strong>{{$level}}<p>
                   <p><strong>Modalidad: </strong>{{$modality}}<p>

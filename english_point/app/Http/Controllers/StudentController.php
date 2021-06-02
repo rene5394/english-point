@@ -54,9 +54,14 @@ class StudentController extends Controller
     public function monthlyPayment(){
         $userCourseModel = new UserCourse();
         $courseid = $userCourseModel->getCourseOfStudent(Auth::user()->id);
-        $view = $this->paySubscriptionPage($courseid);
-        // Return view generated in paySubscriptionPage funciton
-        return $view;
+        if($courseid > 0){
+            $view = $this->paySubscriptionPage($courseid);
+            // Return view generated in paySubscriptionPage funciton
+            return $view;
+        }
+        return view('student.no-available',[
+            'message' => "Tienes que estar suscrito a un curso antes"
+        ]);
     }
 
     // myTransactions loads the transactions page
