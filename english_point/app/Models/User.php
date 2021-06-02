@@ -47,21 +47,26 @@ class User extends Authenticatable
     public function createStudent($request){
         DB::beginTransaction();
         try {
-            $ticketInserted = DB::table('users')->insertGetId([
-                'name' => $request->fullname,
-                'email' => $request->email,
-                'password' => Hash::make($request->password),
-                'address' => $request->address,
-                'phone' => $request->phone,
-                'notification_preference_id' => $request->preference
-            ]);
-            if($ticketInserted > 0){
-                DB::commit();
-                return true;
-            }else{
-                return false;
-                DB::rollBack();
+            $user = DB::table('users')->where('users.email', '=', $request->email)->select('email')->first();
+            if(!isset($user->email)){
+                $userInserted = DB::table('users')->insertGetId([
+                    'name' => $request->fullname,
+                    'email' => $request->email,
+                    'password' => Hash::make($request->password),
+                    'address' => $request->address,
+                    'phone' => $request->phone,
+                    'notification_preference_id' => $request->preference
+                ]);
+                if($userInserted > 0){
+                    DB::commit();
+                    return true;
+                }else{
+                    DB::rollBack();
+                    return false;
+                }
             }
+            DB::rollBack();
+            return false;
         }catch (\Exception $e) {
             DB::rollBack();
             return false;
