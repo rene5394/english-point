@@ -134,7 +134,7 @@ class StudentController extends Controller
                 // Check if there is an error on Wompi transaction
                 if($result[0] === false){
                     $transaction = $result[1];
-                    if($transaction->esAprobada){ //&& $transaction->esReal
+                    if($transaction->esAprobada && $transaction->esReal){ //&& $transaction->esReal
                         $userCourseModel = new UserCourse();
                         $idCourseModel = $userCourseModel->selectOrCreateUserCourse($request->courseid, Auth::user()->id);
                         $transactionModel = new Transaction();
