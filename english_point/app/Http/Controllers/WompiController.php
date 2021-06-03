@@ -46,7 +46,7 @@ class WompiController extends Controller
                     'nombreCliente' => $user->name,
                     'formaPago' => 'PagoNormal',
                     'configuracion' => [
-                        'emailsNotificacion'=> 'renet@uassistme.com',
+                        'emailsNotificacion'=> env("MAIL_TO"),
                         'urlWebhook' => 'https://google.com',
                         'notificarTransaccionCliente' => true
                     ]
